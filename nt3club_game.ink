@@ -6,7 +6,7 @@
 
 === start ===
 
-TraceWindGame
+TraceWindGame 0.0.8
 
 MADE IN TRACEDICK
 
@@ -98,18 +98,11 @@ MADE IN TRACEDICK
 
 风痕掏出手机，打算趁着拉屎的时候做些什么。
 
-+	对了对了，要上tg找群友拉屎
+*	对了对了，要上tg找群友拉屎
 -> st_1.po_2
-+	啊！今天频道还没更新！
+
+*	啊！今天频道还没更新！
 -> st_1.po_3
-
-= po_1_1
-
-风痕苦笑：
-是时候出厕所了。
-+   风痕回到了房间
-
--> log_2
 
 = po_2
 
