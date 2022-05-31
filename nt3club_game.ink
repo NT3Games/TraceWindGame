@@ -6,7 +6,7 @@
 
 === start ===
 
-TraceWindGame 0.0.8
+TraceWindGame 0.0.9
 
 MADE IN TRACEDICK
 
@@ -66,9 +66,9 @@ MADE IN TRACEDICK
 
 *   总而言之，先拉屎吧！
 -> st_1.po_1
-+   对了对了，要上tg找群友拉屎
++   { not st_1.po_2 } 对了对了，要上tg找群友拉屎
 -> st_1.po_2
-+   啊！今天频道还没更新！
++   { not st_1.po_3 } 啊！今天频道还没更新！
 -> st_1.po_3
 +   之前说住院结束后，要直播游戏来着……
 -> st_1.po_4
