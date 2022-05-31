@@ -31,7 +31,7 @@ git pull origin main
 
 ## 演示
 
-<https://gledos.science/nt3club-game/>
+<https://tracewindgame.netlify.app>
 
 ## 贡献
 
