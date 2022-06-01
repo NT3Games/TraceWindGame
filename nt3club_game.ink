@@ -6,7 +6,7 @@
 
 === start ===
 
-TraceWindGame 0.0.14
+TraceWindGame 0.0.14 b
 
 # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片。
@@ -197,24 +197,11 @@ TraceWindGame 0.0.14
 
     风痕：<br>嗯……虽然直男医生嘱咐我要多喝热水，早点睡。<br>可是现在还早吧！
 
-    -> episode_1.stage_2
+    * * 说起来，今天还没吃饭饭呢！ -> episode_1.stage_2.eat
 
 
 
 = stage_2
-
-    *   说起来，今天还没吃饭饭呢！ -> episode_1.stage_3.eat
-
-    *   (bath) 是不是该洗白白了？
-
-    风痕：<br>干，干什么！！！>_<<br>不准看女孩子洗澡澡！！
-
-    * * 风痕虽然这么说，可她还是走向了衣柜。
-    -> yuki_end
-
-
-
-= stage_3
 
 *   (eat) 风痕从背囊中拿出了几罐药。
 
@@ -230,7 +217,7 @@ TraceWindGame 0.0.14
 
         风痕笑着：<br>大家一直都说这个，一定很好吃吧！
 
-        -> episode_1.stage_3.crazy_thursday
+        -> episode_1.stage_2.crazy_thursday
 
     * * 去看看冰箱里还有什么吧 
 
@@ -238,13 +225,21 @@ TraceWindGame 0.0.14
 
         但一个半月都在医院的她，自家的冰箱里又能有什么呢？
 
-        -> episode_1.stage_3.foot_option
+        -> episode_1.stage_2.foot_option
 
+*   (bath) 是不是该洗白白了？
+
+    风痕：<br>干，干什么！！！>_<<br>不准看女孩子洗澡澡！！
+
+    * * 风痕虽然这么说，可她还是走向了衣柜。
+    -> yuki_end
 
 
 *   (crazy_thursday) 风痕不敢打电话，因此她打开了KFC网站。
 
-    正要下单时，风痕才注意到自己并没有注册过KFC会员。
+    * * [【继续阅读】]
+
+    - - 正要下单时，风痕才注意到自己并没有注册过KFC会员。
 
     注册时，风痕已经不太记得自己生日是几月几号了。<br>想着今天也是一个值得纪念的日子，便把生日定在了今日。
 
@@ -335,7 +330,7 @@ TraceWindGame 0.0.14
 // 待写内容。
 
 
--> ep_2
+-> episode_2
 
 
 
@@ -441,7 +436,7 @@ TraceWindGame 0.0.14
 
 
 
-=== ep_2 ===
+=== episode_2 ===
 
 // 这里是第二天的内容
 
