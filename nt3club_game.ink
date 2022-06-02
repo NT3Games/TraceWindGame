@@ -1,12 +1,13 @@
-# title: TraceWindGame
+# title: 风之痕
 # author: NT3
 # theme: dark
+// 游戏地址：https://tracewindgame.netlify.app
 
 -> start
 
 === start ===
 
-TraceWindGame 0.0.15
+风之痕 0.0.16
 
 # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
@@ -32,6 +33,9 @@ TraceWindGame 0.0.15
 === episode_1 ===
 
 -   // 开幕，这里是游戏开始后的第一个场景
+
+    # AUDIO: audios/bgm/the_field_of_dreams.ogg
+    // 音乐来自：https://opengameart.org/content/the-field-of-dreams
 
     我全知！所以知道屎。<br>我全能！所以能拉屎！
 
