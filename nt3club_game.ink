@@ -7,7 +7,7 @@
 
 === start ===
 
-风之痕 0.0.18
+风之痕 0.0.19
 
 # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
@@ -83,8 +83,7 @@
 
         风痕说到：<br>还是自家的屎坑拉起来最舒服！！！>_<
         
-        # AUDIO: audios/sound/plasterbrain_Cute_Anime_Jumps.mp3
-        // https://freesound.org/people/plasterbrain/sounds/396196/
+        # AUDIO: audios/sound/拉屎音.ogg
 
         {tg or update:
             - 拉完屎后，风痕回到了房间。
@@ -96,6 +95,8 @@
         -> episode_1.stage_1
 
 *   (tg) {not (tg or update)} 对了对了，要上tg找群友拉屎
+
+    # AUDIO: audios/sound/电报.ogg
 
     打开tg的风痕快速阅览了几个群组。
 
@@ -480,6 +481,9 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 // audios/bgm/the_field_of_dreams.ogg
 // 音乐来自：https://opengameart.org/content/the-field-of-dreams
+
+// audios/sound/plasterbrain_Cute_Anime_Jumps.mp3
+// 音乐来自：https://freesound.org/people/plasterbrain/sounds/396196/
 
 
 
