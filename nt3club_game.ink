@@ -62,7 +62,6 @@ VAR extension = false
 
 +   [回到标题页面]
     # CLEAR
-    # RESTART
     -> start
 
 
