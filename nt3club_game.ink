@@ -3,11 +3,15 @@
 # theme: dark
 // 游戏地址：https://tracewindgame.netlify.app
 
+INCLUDE extension_cuna.ink
+
+VAR extension = false
+
 -> start
 
 === start ===
 
-风之痕 0.0.21
+风之痕 0.0.21{extension:-扩展分支}
 
 # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
@@ -18,6 +22,7 @@
 （游戏已添加背景音乐，请注意音量。）
 
 +   [任意键] -> episode_1
++   [设置] -> setting
 +   [关于游戏] -> about
 +   [开发者模式] -> debug_mod
 
@@ -33,6 +38,33 @@
     # CLEAR
     # RESTART
     -> start
+
+=== setting ===
+
+设置
+
+扩展分支：{extension:开|关}
+
++   {not extension} [打开 扩展分支]
+    警告：扩展分支包含猎奇、超展开等内容，不建议首次游玩时打开
+    
+    + + [确定]
+        ~ extension = true
+        -> setting
+    + + [取消]
+        -> setting
+
++   {extension} [关闭 扩展分支]
+    警告：扩展分支包含猎奇、超展开等内容，不建议首次游玩时打开
+    
+    ~ extension = false
+    -> setting
+
++   [回到标题页面]
+    # CLEAR
+    # RESTART
+    -> start
+
 
 === episode_1 ===
 
@@ -71,7 +103,7 @@
 
 = stage_1
 
-*   \ {tg or update:该拉屎了！|总而言之，先拉屎吧！}
+*   (pop) \ {tg or update:该拉屎了！|总而言之，先拉屎吧！}
 
     ~ poping = true
 
@@ -237,6 +269,10 @@
         但一个半月都在医院的她，自家的冰箱里又能有什么呢？
 
         -> episode_1.foot_option
+    
+    * * {extension and pop} 记得还有刚才拉的屎
+
+        -> cuna.eat_pop
 
 *   (bath) 是不是该洗白白了？
 
