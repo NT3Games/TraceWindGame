@@ -7,7 +7,7 @@
 
 === start ===
 
-风之痕 0.0.19
+风之痕 0.0.20
 
 # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
@@ -26,6 +26,8 @@
 这是一款美少女能拉屎的文字游戏……
 
 游戏代码仓库在 GitHub： https:\/\/github.com\/gledos\/nt3club-game
+
+借物表待之后更新，目前可以在源代码中查看。
 
 +   [回到标题页面]
     # CLEAR
@@ -46,6 +48,10 @@
     * * “我回来了！”
 
     - - ………………
+    
+    // 关门的音效
+    # AUDIO: audios/sound/336545__giddster__closing-door.ogg
+    // 音乐来自：https://freesound.org/people/giddster/sounds/336545/
 
     风痕笑着，放下装着病历、CT、需按时复用的药与几张收据的挎包后，打开了家中的窗。
 
