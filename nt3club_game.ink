@@ -96,15 +96,15 @@ VAR extension = false
 
     “也有很多事情想做呢！”<br>“但不知道从什么开始做起？”<br>风痕自言自语着。
 
-    VAR poping = false
+    VAR pooping = false
 
     -> episode_1.stage_1
 
 = stage_1
 
-*   (pop) \ {tg or update:该拉屎了！|总而言之，先拉屎吧！}
+*   (poop) \ {tg or update:该拉屎了！|总而言之，先拉屎吧！}
 
-    ~ poping = true
+    ~ pooping = true
 
     风痕的家不大，以风痕的身高来看，走个4步不到便会碰到墙角。
 
@@ -124,7 +124,7 @@ VAR extension = false
 
         {tg or update:
             - 拉完屎后，风痕回到了房间。
-            ~ poping = false
+            ~ pooping = false
         - else:
             风痕掏出手机，打算趁着拉屎的时候做些什么。
         }
@@ -141,10 +141,10 @@ VAR extension = false
 
     她去几个常去的群组，发了几个表情与『早上好』后，盯着屏幕空看了几分钟。
 
-    {not poping: -> episode_1.stage_1}
+    {not pooping: -> episode_1.stage_1}
 
     * * 是时候出厕所了，风痕回到了房间。
-        ~ poping = false
+        ~ pooping = false
 
         -> episode_1.stage_1
 
@@ -166,14 +166,14 @@ VAR extension = false
 
     * * “本雀只想让大家随时点进傻痕频道都能觉得，哇，这好傻，就很开心了。”
 
-    - - {not poping: -> episode_1.stage_1}
+    - - {not pooping: -> episode_1.stage_1}
 
     * * 是时候出厕所了，风痕回到了房间。
-        ~ poping = false
+        ~ pooping = false
 
         -> episode_1.stage_1
 
-*   {not poping} 之前说住院结束后，要直播游戏来着……
+*   {not pooping} 之前说住院结束后，要直播游戏来着……
 
 -   打开了显示器与电脑后，风痕望着电脑屏幕，望得有点出神。
 
@@ -269,9 +269,9 @@ VAR extension = false
 
         -> episode_1.foot_option
     
-    * * {extension and pop} 记得还有刚才拉的屎
+    * * {extension and poop} 记得还有刚才拉的屎
 
-        -> cuna.eat_pop
+        -> cuna.eat_poop
 
 *   (bath) 是不是该洗白白了？
 
