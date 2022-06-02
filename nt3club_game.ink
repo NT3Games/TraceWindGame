@@ -7,13 +7,15 @@
 
 === start ===
 
-风之痕 0.0.16
+风之痕 0.0.18
 
 # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
 // 图片来自：https://www.pexels.com/photo/black-server-racks-on-a-room-325229/
 
 按下任意键开始游戏
+
+（游戏已添加背景音乐，请注意音量。）
 
 +   [任意键] -> episode_1
 
@@ -34,8 +36,8 @@
 
 -   // 开幕，这里是游戏开始后的第一个场景
 
-    # AUDIO: audios/bgm/the_field_of_dreams.ogg
-    // 音乐来自：https://opengameart.org/content/the-field-of-dreams
+    # AUDIOLOOP: audios/bgm/132546__theworkingbamboo__etude.ogg
+    // 音乐来自：https://freesound.org/people/TheWorkingBamboo/sounds/132546/
 
     我全知！所以知道屎。<br>我全能！所以能拉屎！
 
@@ -74,12 +76,15 @@
     * * 嗯……？
 
     - - 这不是美少女游戏吗？怎么会拉屎呢？<br>算了……
-
+    
         风痕脱下了小胖次，坐了下来。<br>想看的人什么也没能看到。
 
     * * [【继续阅读】]
 
         风痕说到：<br>还是自家的屎坑拉起来最舒服！！！>_<
+        
+        # AUDIO: audios/sound/plasterbrain_Cute_Anime_Jumps.mp3
+        // https://freesound.org/people/plasterbrain/sounds/396196/
 
         {tg or update:
             - 拉完屎后，风痕回到了房间。
@@ -470,6 +475,11 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
     -> start
 
 
+
+// 未使用的音乐：
+
+// audios/bgm/the_field_of_dreams.ogg
+// 音乐来自：https://opengameart.org/content/the-field-of-dreams
 
 
 
