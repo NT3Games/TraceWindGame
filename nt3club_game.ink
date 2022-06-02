@@ -2,6 +2,7 @@
 # author: NT3
 # theme: dark
 // 游戏地址：https://tracewindgame.netlify.app
+// 流程图：https://hackmd.io/H3N_GcVcRAW5zvNTY41Kzg?view
 
 INCLUDE extension_cuna.ink
 
@@ -11,7 +12,7 @@ VAR extension = false
 
 === start ===
 
-风之痕 0.0.21{extension:-扩展分支}
+风之痕 0.0.22{extension:-扩展分支}
 
 # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
@@ -30,7 +31,7 @@ VAR extension = false
 
 这是一款美少女能拉屎的文字游戏……
 
-游戏代码仓库在 GitHub： https:\/\/github.com\/gledos\/nt3club-game
+游戏代码仓库在 GitHub： https:\/\/github.com\/NT3Games\/TraceWindGame
 
 借物表待之后更新，目前可以在源代码中查看。
 
@@ -240,6 +241,10 @@ VAR extension = false
 *   风痕的眼神从屏幕移开。
 
 -   这时，放在桌面上的笔筒已经被黑暗所吞噬，本就不大的房间一下子就被时钟的行走声充满。
+
+-> stage_2
+
+= stage_2
 
 风痕：<br>嗯……虽然直男医生嘱咐我要多喝热水，早点睡。<br>可是现在还早吧！
 
@@ -679,5 +684,13 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 这里是开发者模式，可以跳转到：
 
-+    [episode_1 stage_1] ->episode_1.stage_1
-+    [episode_1 stage_4] ->episode_1.stage_4
++   [episode_1] -> debug_mod.episode_1_debug
+
+= episode_1_debug
+
++   [episode_1 stage_1] ->episode_1.stage_1
++   [episode_1 stage_2] ->episode_1.stage_2
++   [episode_1 stage_4] ->episode_1.stage_4
+
+
+
