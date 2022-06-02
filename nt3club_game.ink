@@ -5,6 +5,7 @@
 // 流程图：https://hackmd.io/H3N_GcVcRAW5zvNTY41Kzg?view
 
 INCLUDE extension_cuna.ink
+INCLUDE extern_function.ink
 
 VAR extension = false
 

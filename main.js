@@ -29,6 +29,32 @@ class JsonFileHandler {
     let options = new inkjs.CompilerOptions(null, [], false, null, new JsonFileHandler(inks))
     var story = new inkjs.Compiler(inks['nt3club_game.ink'], options).Compile();
 
+    story.BindExternalFunction("obtained_ending", function (name) {
+        try {
+            let endings_str = window.localStorage.getItem('endings') || [];
+            let endings = JSON.parse(endings_str);
+            return endings.includes(name);
+        } catch (e) {
+            console.debug("Couldn't load save state");
+            return false;
+        }
+    }, lookaheadSafe = true);
+
+    story.BindExternalFunction("new_ending", function (name) {
+        try {
+            let endings_str = window.localStorage.getItem('endings') || [];
+            let endings = new Set(JSON.parse(endings_str));
+            endings.add(name);
+            window.localStorage.setItem('endings', JSON.stringify(Array.from(endings)))
+        } catch (e) {
+            console.debug("Couldn't load save state");
+        }
+    }, lookaheadSafe = false);
+
+    story.BindExternalFunction("console_log", function (text) {
+        console.log(text)
+    }, lookaheadSafe = false);
+
     var savePoint = "";
 
     let savedTheme;
