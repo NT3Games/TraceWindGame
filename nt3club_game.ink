@@ -63,6 +63,15 @@ VAR extension = false
     ~ extension = false
     -> setting
 
++   [清空已解锁结局]
+    警告：此举将会清空所有已解锁的结局和病历条目，其无法恢复！
+
+    + + [确定]
+        ~ clear_ending()
+        -> setting
+    + + [取消]
+        -> setting
+
 +   [回到标题页面]
     # CLEAR
     -> start

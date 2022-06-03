@@ -51,6 +51,14 @@ class JsonFileHandler {
         }
     }, false);
 
+    story.BindExternalFunction("clear_ending", function () {
+        try {
+            window.localStorage.setItem('endings', '[]')
+        } catch (e) {
+            console.debug("Couldn't load save state");
+        }
+    }, false);
+
     story.BindExternalFunction("console_log", function (text) {
         console.log(text)
     }, false);
