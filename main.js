@@ -19,7 +19,7 @@ class JsonFileHandler {
 }
 
 (async function () {
-    const files = ['nt3club_game.ink', 'extension_cuna.ink']
+    const files = ['nt3club_game.ink', 'extension_cuna.ink', 'extern_function.ink']
     let inks = {};
 
     for (const filename of files) {
@@ -31,7 +31,7 @@ class JsonFileHandler {
 
     story.BindExternalFunction("obtained_ending", function (name) {
         try {
-            let endings_str = window.localStorage.getItem('endings') || [];
+            let endings_str = window.localStorage.getItem('endings') || '[]';
             let endings = JSON.parse(endings_str);
             return endings.includes(name);
         } catch (e) {
@@ -42,7 +42,7 @@ class JsonFileHandler {
 
     story.BindExternalFunction("new_ending", function (name) {
         try {
-            let endings_str = window.localStorage.getItem('endings') || [];
+            let endings_str = window.localStorage.getItem('endings') || '[]';
             let endings = new Set(JSON.parse(endings_str));
             endings.add(name);
             window.localStorage.setItem('endings', JSON.stringify(Array.from(endings)))

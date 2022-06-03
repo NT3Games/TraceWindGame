@@ -24,6 +24,7 @@ VAR extension = false
 （游戏已添加背景音乐，请注意音量。）
 
 +   [任意键] -> episode_1
++   [已解锁结局] -> endings
 +   [设置] -> setting
 +   [关于游戏] -> about
 +   [开发者模式] -> debug_mod
@@ -49,7 +50,7 @@ VAR extension = false
 
 +   {not extension} [打开 扩展分支]
     警告：扩展分支包含猎奇、超展开等内容，不建议首次游玩时打开
-    
+
     + + [确定]
         ~ extension = true
         -> setting
@@ -58,7 +59,7 @@ VAR extension = false
 
 +   {extension} [关闭 扩展分支]
     警告：扩展分支包含猎奇、超展开等内容，不建议首次游玩时打开
-    
+
     ~ extension = false
     -> setting
 
@@ -66,6 +67,18 @@ VAR extension = false
     # CLEAR
     -> start
 
+
+=== endings ===
+
++   {obtained_ending("sleeping")} 睡美人
++   {obtained_ending("yuki")} 汤化雪
+    病历条目：忌冲热水凉、泡热水澡。
++   {obtained_ending("butterfly")} 羽化梦
+    病历条目：忌食高脂肪、酒、油炸食品。
++   [回到标题页面]
+    # CLEAR
+    -> start
+- -> endings
 
 === episode_1 ===
 
@@ -115,13 +128,13 @@ VAR extension = false
     * * 嗯……？
 
     - - 这不是美少女游戏吗？怎么会拉屎呢？<br>算了……
-    
+
         风痕脱下了小胖次，坐了下来。<br>想看的人什么也没能看到。
 
     * * [【继续阅读】]
 
         风痕说到：<br>还是自家的屎坑拉起来最舒服！！！>_<
-        
+
         # AUDIO: audios/sound/拉屎音.ogg
 
         {tg or update:
@@ -267,14 +280,14 @@ VAR extension = false
 
         -> episode_1.crazy_thursday
 
-    * * 去看看冰箱里还有什么吧 
+    * * 去看看冰箱里还有什么吧
 
         风痕打开了冰箱。
 
         但一个半月都在医院的她，自家的冰箱里又能有什么呢？
 
         -> episode_1.foot_option
-    
+
     * * {extension and poop} 记得还有刚才拉的屎
 
         -> cuna.eat_poop
@@ -514,6 +527,8 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 直到永远。
 
+~ new_ending("sleeping")
+
 # CLASS: end
 睡美人 END
 
@@ -571,6 +586,8 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 * * [进入结局]
 
+~ new_ending("yuki")
+
 - - 获得病历条目：【第XX条←我不知道有几个结局，现在大概就第2条吧】 忌冲热水凉、泡热水澡。
 
 # CLASS: end
@@ -588,7 +605,7 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 *   [进入结局]
 
-风痕就这样沉入了梦乡。
+-   风痕就这样沉入了梦乡。
 
 意识朦胧，一阵窸窸窣窣的声音在房间内响起。
 
@@ -614,6 +631,7 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 她自由了。
 
+~ new_ending("butterfly")
 
 获得病历条目：忌食高脂肪、酒、油炸食品。
 
