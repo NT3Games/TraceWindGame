@@ -38,7 +38,7 @@ class JsonFileHandler {
             console.debug("Couldn't load save state");
             return false;
         }
-    }, lookaheadSafe = true);
+    }, true);
 
     story.BindExternalFunction("new_ending", function (name) {
         try {
@@ -49,11 +49,11 @@ class JsonFileHandler {
         } catch (e) {
             console.debug("Couldn't load save state");
         }
-    }, lookaheadSafe = false);
+    }, false);
 
     story.BindExternalFunction("console_log", function (text) {
         console.log(text)
-    }, lookaheadSafe = false);
+    }, false);
 
     var savePoint = "";
 
