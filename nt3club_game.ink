@@ -4,6 +4,7 @@
 // 游戏地址：https://tracewindgame.netlify.app
 // 流程图：https://hackmd.io/H3N_GcVcRAW5zvNTY41Kzg?view
 
+// All of including file should list in the main.js FILES array.
 INCLUDE extension_cuna.ink
 
 VAR extension = false

@@ -1,3 +1,5 @@
+const FILES = ['nt3club_game.ink', 'extension_cuna.ink']
+
 // compile from https://github.com/y-lohse/inkjs/blob/master/src/compiler/FileHandler/JsonFileHandler.ts
 class JsonFileHandler {
     constructor(fileHierarchy) {
@@ -19,10 +21,9 @@ class JsonFileHandler {
 }
 
 (async function () {
-    const files = ['nt3club_game.ink', 'extension_cuna.ink']
     let inks = {};
 
-    for (const filename of files) {
+    for (const filename of FILES) {
         inks[filename] = await fetch(filename).then(res => res.text())
     }
 
