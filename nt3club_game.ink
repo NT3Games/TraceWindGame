@@ -13,7 +13,7 @@ VAR extension = false
 
 === start ===
 
-风之痕 0.0.23{extension:-扩展分支}
+风之痕 0.0.24{extension:-扩展分支}
 
 # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
@@ -365,7 +365,7 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 风痕笑了起来：<br>还不坏。
 
 回到房间后服用了药物，就准备睡觉了。
--> stage_4
+-> sleeping_end
 
 * [吃鸡蛋]
 
@@ -392,7 +392,7 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
     去厕所洗了洗手，洗漱、并擦了下身。
 
 * * 准备睡觉了。
--> episode_1.end
+-> stage_4
 
 
 = end
