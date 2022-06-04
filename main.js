@@ -20,7 +20,29 @@ class JsonFileHandler {
     }
 }
 
-(async function () {
+function CreateAudio() {
+    let audio = undefined
+
+    function cancelAudio() {
+        if (audio !== undefined) {
+            audio.pause();
+            audio.removeAttribute('src');
+            audio.load();
+        }
+    }
+
+    return (
+        function applyAudio(appendProperties = {}) {
+            cancelAudio();
+    
+            audio = new Audio();
+            Object.assign(audio, appendProperties);
+            audio.play();
+        }
+    )
+}
+
+;(async function () {
     let inks = {};
 
     for (const filename of FILES) {
@@ -69,6 +91,9 @@ class JsonFileHandler {
     // Set initial save point
     savePoint = story.state.toJson();
 
+    // init audio
+    const applyAudio = CreateAudio();
+
     // Kick off the start of the story!
     continueStory(true);
 
@@ -100,25 +125,12 @@ class JsonFileHandler {
 
                 // AUDIO: src
                 if (splitTag && splitTag.property == "AUDIO") {
-                    if ('audio' in this) {
-                        this.audio.pause();
-                        this.audio.removeAttribute('src');
-                        this.audio.load();
-                    }
-                    this.audio = new Audio(splitTag.val);
-                    this.audio.play();
+                    applyAudio({ src: splitTag.val });
                 }
 
                 // AUDIOLOOP: src
                 else if (splitTag && splitTag.property == "AUDIOLOOP") {
-                    if ('audioLoop' in this) {
-                        this.audioLoop.pause();
-                        this.audioLoop.removeAttribute('src');
-                        this.audioLoop.load();
-                    }
-                    this.audioLoop = new Audio(splitTag.val);
-                    this.audioLoop.play();
-                    this.audioLoop.loop = true;
+                    applyAudio({ src: splitTag.val, loop: true });
                 }
 
                 // IMAGE: src
