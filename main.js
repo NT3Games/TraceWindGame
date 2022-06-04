@@ -21,10 +21,10 @@ class JsonFileHandler {
 }
 
 function CreateAudio() {
-    let audio = undefined
+    let audio = undefined;
 
     function cancelAudio() {
-        if (audio !== undefined) {
+        if (audio instanceof Audio) {
             audio.pause();
             audio.removeAttribute('src');
             audio.load();
@@ -34,9 +34,10 @@ function CreateAudio() {
     return (
         function applyAudio(appendProperties = {}) {
             cancelAudio();
-    
+
             audio = new Audio();
             Object.assign(audio, appendProperties);
+            audio.load();
             audio.play();
         }
     )
@@ -125,7 +126,7 @@ function CreateAudio() {
 
                 // AUDIO: src
                 if (splitTag && splitTag.property == "AUDIO") {
-                    applyAudio({ src: splitTag.val });
+                    applyAudio({ src: splitTag.val, loop: false });
                 }
 
                 // AUDIOLOOP: src
