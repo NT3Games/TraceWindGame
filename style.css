@@ -189,9 +189,14 @@ img {
     text-align: center;
 }
 
-.tips {
+.tips_title {
     font-size: 15.5pt;
     font-weight: bold;
+    text-align: center;
+}
+
+.tips_text {
+    font-size: 15.5pt;
     text-align: center;
 }
 

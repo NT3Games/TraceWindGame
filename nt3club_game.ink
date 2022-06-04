@@ -14,7 +14,7 @@ VAR extension = false
 
 === start ===
 
-风之痕 0.0.26{extension:-扩展分支}
+风之痕 0.0.26 c{extension:-扩展分支}
 
 // # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
@@ -538,11 +538,14 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 ~ new_ending("sleeping")
 
-# CLASS: gameend
+# CLASS: game_end
 睡美人 END
 
-# CLASS: tips
-获得病历条目：{tips}。
+# CLASS: tips_title
+获得条例
+
+# CLASS: tips_text
+{tips}
 
 -> bite_the_dust.sleeping
 
@@ -599,11 +602,14 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 ~ new_ending("yuki")
 
-# CLASS: gameend
+# CLASS: game_end
 汤化雪 END
 
-# CLASS: tips
-获得病历条目：忌冲热水凉、泡热水澡。
+# CLASS: tips_title
+获得条例
+
+# CLASS: tips_text
+忌冲热水凉、泡热水澡
 
 -> bite_the_dust.yuki
 
@@ -645,11 +651,14 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 ~ new_ending("butterfly")
 
-# CLASS: gameend
+# CLASS: game_end
 羽化梦 END
 
-# CLASS: tips
-获得病历条目：忌食高脂肪、酒、油炸食品。
+# CLASS: tips_title
+获得条例
+
+# CLASS: tips_text
+忌食高脂肪、酒、油炸食品
 
 -> bite_the_dust.butterfly
 
