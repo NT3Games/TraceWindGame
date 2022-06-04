@@ -1,4 +1,4 @@
-const FILES = ['nt3club_game.ink', 'extension_cuna.ink']
+const FILES = ['nt3club_game.ink', 'extension_cuna.ink', 'extern_function.ink']
 
 // compile from https://github.com/y-lohse/inkjs/blob/master/src/compiler/FileHandler/JsonFileHandler.ts
 class JsonFileHandler {
@@ -42,7 +42,8 @@ function CreateAudio() {
     )
 }
 
-;(async function () {
+(async function () {
+    const files = ['nt3club_game.ink', 'extension_cuna.ink', 'extern_function.ink']
     let inks = {};
 
     for (const filename of FILES) {
@@ -51,6 +52,40 @@ function CreateAudio() {
 
     let options = new inkjs.CompilerOptions(null, [], false, null, new JsonFileHandler(inks))
     var story = new inkjs.Compiler(inks['nt3club_game.ink'], options).Compile();
+
+    story.BindExternalFunction("obtained_ending", function (name) {
+        try {
+            let endings_str = window.localStorage.getItem('endings') || '[]';
+            let endings = JSON.parse(endings_str);
+            return endings.includes(name);
+        } catch (e) {
+            console.debug("Couldn't load save state");
+            return false;
+        }
+    }, true);
+
+    story.BindExternalFunction("new_ending", function (name) {
+        try {
+            let endings_str = window.localStorage.getItem('endings') || '[]';
+            let endings = new Set(JSON.parse(endings_str));
+            endings.add(name);
+            window.localStorage.setItem('endings', JSON.stringify(Array.from(endings)))
+        } catch (e) {
+            console.debug("Couldn't load save state");
+        }
+    }, false);
+
+    story.BindExternalFunction("clear_ending", function () {
+        try {
+            window.localStorage.setItem('endings', '[]')
+        } catch (e) {
+            console.debug("Couldn't load save state");
+        }
+    }, false);
+
+    story.BindExternalFunction("console_log", function (text) {
+        console.log(text)
+    }, false);
 
     var savePoint = "";
 
