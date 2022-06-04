@@ -14,17 +14,15 @@ VAR extension = false
 
 === start ===
 
-风之痕 0.0.25{extension:-扩展分支}
+风之痕 0.0.26{extension:-扩展分支}
 
 // # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
 // 图片来自：https://www.pexels.com/photo/black-server-racks-on-a-room-325229/
 
-按下任意键开始游戏
-
 （游戏已添加背景音乐，请注意音量。）
 
-+   [任意键] -> episode_1
++   [开始游戏] -> episode_1
 +   [已解锁结局] -> endings
 +   [设置] -> setting
 +   [关于游戏] -> about
@@ -528,7 +526,7 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 // 睡美人 END
 
-*   [进入结局]
+*   [【继续阅读】]
 
 晨光侵入那宽跨的窗帘，抚过风痕白皙的皮肤。
 
@@ -540,12 +538,12 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 ~ new_ending("sleeping")
 
-# CLASS: end
+# CLASS: gameend
 睡美人 END
 
 获得病历条目：{tips}。
 
--> ENDs
+-> bite_the_dust.sleeping
 
 
 
@@ -596,16 +594,16 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 风痕耳边的笑声愈渐愈远，就像那些水珠一般，升走了。
 
-* * [进入结局]
+* * [【继续阅读】]
 
 ~ new_ending("yuki")
 
-# CLASS: end
+# CLASS: gameend
 汤化雪 END
 
 - - 获得病历条目：忌冲热水凉、泡热水澡。
 
--> ENDs
+-> bite_the_dust.yuki
 
 
 
@@ -615,7 +613,7 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 // 羽化梦 END
 
-*   [进入结局]
+*   [【继续阅读】]
 
 -   风痕就这样沉入了梦乡。
 
@@ -645,12 +643,12 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 ~ new_ending("butterfly")
 
-# CLASS: end
+# CLASS: gameend
 羽化梦 END
 
 获得病历条目：忌食高脂肪、酒、油炸食品。
 
--> ENDs
+-> bite_the_dust.butterfly
 
 
 
@@ -691,6 +689,57 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
     # CLEAR
     # RESTART
     -> start
+
+
+
+
+
+=== bite_the_dust
+
+= yuki
+
+<br><br><br>
+
++   [结束游戏？] -> ENDs
++   [回到之前的选择？]
++   +   [风痕：<br>嗯……虽然直男医生嘱咐我要多喝热水，早点睡。<br>可是现在还早吧！]
+        # CLEAR
+        -> episode_1.stage_2
+
+
+= sleeping
+
+<br><br><br>
+
++   [结束游戏？] -> ENDs
++   [回到之前的选择？]
++   +   [风痕：<br>嗯……虽然直男医生嘱咐我要多喝热水，早点睡。<br>可是现在还早吧！]
+        # CLEAR
+        -> episode_1.stage_2
++   +   [说起来，今天还没吃饭饭呢！]
+        # CLEAR
+        -> episode_1.stage_2.eat
+
+
+= butterfly
+
+<br><br><br>
+
++   [结束游戏？] -> ENDs
++   [回到之前的选择？]
++   +   [风痕：<br>嗯……虽然直男医生嘱咐我要多喝热水，早点睡。<br>可是现在还早吧！]
+        # CLEAR
+        -> episode_1.stage_2
++   +   [说起来，今天还没吃饭饭呢！]
+        # CLEAR
+        -> episode_1.stage_2.eat
++   +   准备睡觉了。
+        # CLEAR
+        -> episode_1.stage_4
+
+
+
+
 
 
 

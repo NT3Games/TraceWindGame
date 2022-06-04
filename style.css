@@ -183,6 +183,11 @@ img {
     padding-bottom: 20px;
 }
 
+.gameend {
+    font-size: 15.5pt;
+    font-weight: bold;
+}
+
 #controls {
     z-index: 4;
     font-size: 9pt;
