@@ -44,7 +44,6 @@ function CreateAudio() {
 }
 
 (async function () {
-    const files = ['nt3club_game.ink', 'extension_cuna.ink', 'extern_function.ink']
     let inks = {};
 
     for (const filename of FILES) {
