@@ -16,7 +16,7 @@ VAR extension = false
 
 风之痕 0.0.25{extension:-扩展分支}
 
-# IMAGE: images/pexels-manuel-geissinger-325229.jpg
+// # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
 // 图片来自：https://www.pexels.com/photo/black-server-racks-on-a-room-325229/
 
