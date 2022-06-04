@@ -184,6 +184,12 @@ img {
 }
 
 .gameend {
+    font-size: 18.5pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tips {
     font-size: 15.5pt;
     font-weight: bold;
     text-align: center;

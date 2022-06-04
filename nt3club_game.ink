@@ -541,6 +541,7 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 # CLASS: gameend
 睡美人 END
 
+# CLASS: tips
 获得病历条目：{tips}。
 
 -> bite_the_dust.sleeping
@@ -601,7 +602,8 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 # CLASS: gameend
 汤化雪 END
 
-- - 获得病历条目：忌冲热水凉、泡热水澡。
+# CLASS: tips
+获得病历条目：忌冲热水凉、泡热水澡。
 
 -> bite_the_dust.yuki
 
@@ -646,6 +648,7 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 # CLASS: gameend
 羽化梦 END
 
+# CLASS: tips
 获得病历条目：忌食高脂肪、酒、油炸食品。
 
 -> bite_the_dust.butterfly
