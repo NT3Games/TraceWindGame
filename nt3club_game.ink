@@ -14,7 +14,7 @@ VAR extension = false
 
 === start ===
 
-风之痕 0.0.26 c{extension:-扩展分支}
+风之痕 0.0.27{extension:-扩展分支}
 
 // # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
@@ -541,6 +541,8 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 # CLASS: game_end
 睡美人 END
 
+<br>
+
 # CLASS: tips_title
 获得条例
 
@@ -605,6 +607,8 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 # CLASS: game_end
 汤化雪 END
 
+<br>
+
 # CLASS: tips_title
 获得条例
 
@@ -653,6 +657,8 @@ KFC很慷慨地送了『新注册会员的优惠卷』与『生日优惠卷』
 
 # CLASS: game_end
 羽化梦 END
+
+<br>
 
 # CLASS: tips_title
 获得条例

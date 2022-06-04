@@ -183,7 +183,7 @@ img {
     padding-bottom: 20px;
 }
 
-.gameend {
+.game_end {
     font-size: 18.5pt;
     font-weight: bold;
     text-align: center;
@@ -193,9 +193,11 @@ img {
     font-size: 15.5pt;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 0px;
 }
 
 .tips_text {
+    margin-top: 0px;
     font-size: 15.5pt;
     text-align: center;
 }
