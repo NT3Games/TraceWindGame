@@ -6,9 +6,7 @@
 
 项目仍在开发中。
 
-## 使用
-
-### 快速使用
+## 获取
 
 克隆本仓库获取游戏脚本：
 
@@ -16,6 +14,7 @@
 git clone https://github.com/NT3Games/TraceWindGame.git
 cd TraceWindGame
 ```
+
 或在 [Releases](https://github.com/NT3Games/TraceWindGame/releases) 页面下载对应版本的源码。
 
 ### 升级
@@ -27,6 +26,45 @@ git pull origin main
 ```
 
 或在 [Releases](https://github.com/NT3Games/TraceWindGame/releases/latest) 页面下载最新版本的源码。
+
+## 使用
+
+### Inky 等官方工具
+
+ink 官方提供了诸多可以运行本项目的工具（例如 [Inky](https://github.com/inkle/inky)）。参见[本文档](https://github.com/inkle/ink#ink-inky-ink-unity-integration-inkjs-inklecate-inkle-oh-my)以了解官方工具的用法。
+
+<!-- 可以考虑加一些 instructions -->
+
+### Web 服务器
+
+获取项目源码后，可以使用 Web 服务器加载本项目。以 Arch Linux 环境下的 Nginx 为例：
+
+在终端中运行 `sudo pacman -S nginx` 安装 Nginx。再使用偏好的编辑器打开 Nginx 配置文件（例如 `sudo vim /etc/nginx/nginx.conf`），在默认的 `http` 域内添加如下条目：
+
+```nginx
+server {
+    listen       8080;  # 端口任选
+    server_name  localhost;
+    location / {
+        root   /usr/share/nginx/TraceWindGame;  # 源码路径，不建议随意修改权限
+        index  index.html;
+    }
+}
+```
+
+将源码复制到指定路径处：
+
+```bash
+sudo cp -r TraceWindGame /usr/share/nginx
+```
+
+确认无误后，启动 Nginx 服务：
+
+```bash
+sudo systemctl start nginx
+```
+
+在浏览器中访问 http://localhost:8080 即可。
 
 ## 演示
 
