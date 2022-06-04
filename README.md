@@ -16,8 +16,7 @@
 git clone https://github.com/NT3Games/TraceWindGame.git
 cd TraceWindGame
 ```
-
-或直接[下载](https://raw.githubusercontent.com/NT3Games/TraceWindGame/main/nt3club_game.ink)，然后将其导入 Ink 引擎中运行。
+或在 [Releases](https://github.com/NT3Games/TraceWindGame/releases) 页面下载对应版本的源码。
 
 ### 升级
 
@@ -27,7 +26,7 @@ cd TraceWindGame
 git pull origin main
 ```
 
-或者是重新下载游戏脚本。
+或在 [Releases](https://github.com/NT3Games/TraceWindGame/releases/latest) 页面下载最新版本的源码。
 
 ## 演示
 
