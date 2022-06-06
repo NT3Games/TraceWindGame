@@ -9,19 +9,19 @@ INCLUDE extension_cuna.ink
 INCLUDE extern_function.ink
 
 VAR extension = false
-VAR sound = 0
+VAR sound = false
 
 -> start
 
 === start ===
 
-风之痕 0.0.29-rc.1{extension:-扩展分支}
+风之痕 0.0.29-rc.2{extension:-扩展分支}
 
 // # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
 // 图片来自：https://www.pexels.com/photo/black-server-racks-on-a-room-325229/
 
-{ sound > 0 :
+{ sound == true :
     （游戏已添加音效，请注意音量。）
 }
 
@@ -33,60 +33,73 @@ VAR sound = 0
 
 === about ===
 
+# CLEAR
+# CLASS: menu_title
+关于
+
 这是一款美少女能拉屎的文字游戏……
 
 游戏代码仓库在 GitHub： https:\/\/github.com\/NT3Games\/TraceWindGame
 
-借物表待之后更新，目前可以在源代码中查看。
+// 借物表待之后更新，目前可以在源代码中查看。
 
 +   [回到标题页面]
     # CLEAR
-    # RESTART
     -> start
 
 === setting ===
 
+# CLEAR
+# CLASS: menu_title
 设置
 
-扩展分支：{extension:开|关}
+扩展分支：{extension:开|关}；语音支持：{sound:开|关}
 
 +   {not extension} [打开 扩展分支]
     警告：扩展分支包含猎奇、超展开等内容，不建议首次游玩时打开。
 
 +   +   [确定]
         ~ extension = true
+        # CLEAR
         -> setting
 +   +   [取消]
+        # CLEAR
         -> setting
 
 +   {extension} [关闭 扩展分支]
     警告：扩展分支包含猎奇、超展开等内容，不建议首次游玩时打开。
 
     ~ extension = false
+    # CLEAR
     -> setting
 
 +   {not sound} [打开 语音支持]
     注意：由于音效是及时加载的，所以网络延迟较高时体验会较差。
 
 +   +   [确定]
-        ~ sound = 1
+        ~ sound = true
+        # CLEAR
         -> setting
 +   +   [取消]
+        # CLEAR
         -> setting
 
 +   {sound} [关闭 语音支持]
     注意：由于音效是及时加载的，所以网络延迟较高时体验会较差。
 
-    ~ sound = 0
+    ~ sound = false
+    # CLEAR
     -> setting
 
 +   [清空已解锁结局]
     警告：此举将会清空所有已解锁的结局和病历条目，其无法恢复！
 
-    + + [确定]
++   +   [确定]
         ~ clear_ending()
+        # CLEAR
         -> setting
-    + + [取消]
++   +   [取消]
+        # CLEAR
         -> setting
 
 +   [回到标题页面]
@@ -96,6 +109,14 @@ VAR sound = 0
 
 === endings ===
 
+# CLEAR
+# CLASS: menu_title
+已解锁结局
+
+{ obtained_ending < 1 :
+    目前似乎没有解锁结局。
+}
+
 +   {obtained_ending("sleeping")} 睡美人
 +   {obtained_ending("yuki")} 汤化雪
     病历条目：忌冲热水凉、泡热水澡。
@@ -103,6 +124,7 @@ VAR sound = 0
     病历条目：忌食高脂肪、酒、油炸食品。
 +   [回到标题页面]
     # CLEAR
+    # RESTART
     -> start
 - -> endings
 
@@ -117,11 +139,11 @@ VAR sound = 0
 
 住院长达46天，今日终于结束的风痕，回到了家。
 
-*   「我回来了！」
++   「我回来了！」
 
 -   ………………
 
-{ sound > 0:
+{ sound == true :
     # AUDIO: audios/sound/关门.ogg
 }
 
@@ -133,9 +155,9 @@ VAR sound = 0
 
 风痕笑道：
 
-*   「嗯哼哼~~ 从今天开始，每天都有很多时间呢！」
++   「嗯哼哼~~ 从今天开始，每天都有很多时间呢！」
 
-    { sound > 0:
+    { sound == true :
         # AUDIO: audios/sound/嗯哼哼~~.ogg
     }
 
@@ -155,7 +177,7 @@ VAR pooping = false
 
     供她拉屎的厕所，就在入口的右侧。
 
-*   *   「嗯……？」
++   +   「嗯……？」
 
 -   -   这不是美少女游戏吗？怎么会拉屎呢？<br>算了……
 
@@ -169,7 +191,7 @@ VAR pooping = false
 
 -   -   &nbsp
 
-{ sound > 0:
+{ sound == true :
     # AUDIO: audios/sound/拉屎.ogg
 }
 
@@ -184,7 +206,7 @@ VAR pooping = false
 
 *   (tg) {not (tg or update)} 对了对了，要上tg找群友拉屎
 
-    { sound > 0:
+    { sound == true :
         # AUDIO: audios/sound/电报.ogg
     }
 
@@ -197,10 +219,10 @@ VAR pooping = false
 
     {not pooping: -> episode_1.stage_1}
 
-*   *   「小心痔疮！是时候出厕所了」
++   +   「小心痔疮！是时候出厕所了」
         ~ pooping = false
 
-*   *   *   [之前说住院结束后，要直播游戏来着……] -> episode_1.stage_1.livestream
++   +   +   [之前说住院结束后，要直播游戏来着……] -> episode_1.stage_1.livestream
 
 *   (update) {not (tg or update)} 啊！今天频道还没更新！
 
@@ -210,19 +232,19 @@ VAR pooping = false
 
     其他的频道凭借着发色图、将他人制作的梗图据为己有、联动色情与白嫖频道以此扩大订阅量。
 
-*   *   「我才不和他们同流合污呢，哼。」
++   +   「我才不和他们同流合污呢，哼。」
 
-    { sound > 0:
+    { sound == true :
         # AUDIO: audios/sound/哼（小生气）.ogg
     }
 
 -   -   风痕看了下群中的几个投稿，又打开了常去的BBS网站，转发了几张过时的梗图到自己的万人频道中。
 
-*   *   「本雀只想让大家点进傻痕频道后觉得开心，便够了」
++   +   「本雀只想让大家点进傻痕频道后觉得开心，便够了」
 
 -   -   {not pooping: -> episode_1.stage_1}
 
-*   *   「小心痔疮！是时候出厕所了」
++   +   「小心痔疮！是时候出厕所了」
         ~ pooping = false
 
         -> episode_1.stage_1
@@ -233,7 +255,7 @@ VAR pooping = false
 
     风痕摇了摇头，拍了拍脸：<br>「是时候遵守承诺，直播游戏了！」
 
-    { sound > 0:
+    { sound == true :
         # AUDIO: audios/sound/打脸（啪啪）.ogg
     }
 
@@ -260,7 +282,7 @@ VAR pooping = false
 
 +   风痕在麦前欢呼
 
-    { sound > 0:
+    { sound == true :
         # AUDIO: audios/sound/欢呼.ogg
     }
 
@@ -282,7 +304,7 @@ VAR pooping = false
 +   「啊！是这样………………好！过关了！！」<>
 -   风痕自己鼓起了掌来。
 
-    { sound > 0:
+    { sound == true :
         # AUDIO: audios/sound/鼓掌.ogg
     }
 
@@ -326,7 +348,7 @@ VAR pooping = false
 
 风痕迅速地打开了灯。
 
-{ sound > 0:
+{ sound == true :
     # AUDIO: audios/sound/关灯.ogg
 }
 
@@ -358,7 +380,7 @@ VAR pooping = false
 
 +   (bath) 是不是该洗白白了？
 
-    { sound > 0:
+    { sound == true :
         # AUDIO: audios/sound/稍微生气.ogg
     }
 
@@ -379,7 +401,7 @@ VAR pooping = false
 
 风痕皱起眉头：<br>我的生日，是几月几号来着……？
 
-{ sound > 0:
+{ sound == true :
     # AUDIO: audios/sound/思考.ogg
 }
 
@@ -475,7 +497,7 @@ VAR pooping = false
 
 +   +   嗒一声，水花声褪去。
 
-        { sound > 0:
+        { sound == true :
             # AUDIO: audios/sound/开水.ogg
         }
 
@@ -507,7 +529,7 @@ VAR pooping = false
 
 风痕高兴：<br>虽然屎屎的，但香香的、软软的~哼哼~
 
-{ sound > 0:
+{ sound == true :
     # AUDIO: audios/sound/嗯哼哼~~.ogg
 }
 
@@ -852,15 +874,16 @@ VAR pooping = false
 
 === debug_mod ===
 
+# CLEAR
+# CLASS: menu_title
+开发者模式
+
 这里是开发者模式，可以跳转到：
 
-+   [EP 1] -> debug_mod.episode_1_debug
++   [Episode 1] -> debug_mod.episode_1_debug
 
 = episode_1_debug
 
-+   [stage 1] ->episode_1.stage_1
-+   [stage 2] ->episode_1.stage_2
-+   [stage 4] ->episode_1.stage_4
-
-
-
++   [Stage 1] ->episode_1.stage_1
++   [Stage 2] ->episode_1.stage_2
++   [Stage 4] ->episode_1.stage_4

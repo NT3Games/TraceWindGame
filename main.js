@@ -205,7 +205,7 @@ function CreateAudio() {
                     removeAll("img");
 
                     // Comment out this line if you want to leave the header visible when clearing
-                    setVisible(".header", false);
+                    // setVisible(".header", false);
 
                     if (tag == "RESTART") {
                         restart();
