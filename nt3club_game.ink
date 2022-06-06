@@ -9,18 +9,21 @@ INCLUDE extension_cuna.ink
 INCLUDE extern_function.ink
 
 VAR extension = false
+VAR sound = 0
 
 -> start
 
 === start ===
 
-风之痕 0.0.28-rc.3{extension:-扩展分支}
+风之痕 0.0.29{extension:-扩展分支}
 
 // # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
 // 图片来自：https://www.pexels.com/photo/black-server-racks-on-a-room-325229/
 
-（游戏已添加音效，请注意音量。）
+{ sound > 0 :
+    （游戏已添加音效，请注意音量。）
+}
 
 +   [开始游戏] -> episode_1
 +   [已解锁结局] -> endings
@@ -48,18 +51,33 @@ VAR extension = false
 扩展分支：{extension:开|关}
 
 +   {not extension} [打开 扩展分支]
-    警告：扩展分支包含猎奇、超展开等内容，不建议首次游玩时打开
+    警告：扩展分支包含猎奇、超展开等内容，不建议首次游玩时打开。
 
-    + + [确定]
++   +   [确定]
         ~ extension = true
         -> setting
-    + + [取消]
++   +   [取消]
         -> setting
 
 +   {extension} [关闭 扩展分支]
-    警告：扩展分支包含猎奇、超展开等内容，不建议首次游玩时打开
+    警告：扩展分支包含猎奇、超展开等内容，不建议首次游玩时打开。
 
     ~ extension = false
+    -> setting
+
++   {not sound} [打开 语音支持]
+    注意：由于音效是及时加载的，所以网络延迟较高时体验会较差。
+
++   +   [确定]
+        ~ sound = 1
+        -> setting
++   +   [取消]
+        -> setting
+
++   {sound} [关闭 语音支持]
+    注意：由于音效是及时加载的，所以网络延迟较高时体验会较差。
+
+    ~ sound = 0
     -> setting
 
 +   [清空已解锁结局]
@@ -103,7 +121,9 @@ VAR extension = false
 
 -   ………………
 
-# AUDIO: audios/sound/关门.ogg
+{ sound > 0:
+    # AUDIO: audios/sound/关门.ogg
+}
 
 风痕笑着，放下装着病历、CT、需按时复用的药与几张收据的挎包后，打开了家中的窗。
 
@@ -115,7 +135,9 @@ VAR extension = false
 
 *   「嗯哼哼~~ 从今天开始，每天都有很多时间呢！」
 
-    # AUDIO: audios/sound/嗯哼哼~~.ogg
+    { sound > 0:
+        # AUDIO: audios/sound/嗯哼哼~~.ogg
+    }
 
 -   风痕自言自语：<br>「还有很多事情想做呢！」<br>「嗯……但不知道从什么开始做起？」
 
@@ -145,7 +167,11 @@ VAR pooping = false
 
 +   +   「还是自家的屎坑拉起来最舒服！！！>_<」
 
--   -   # AUDIO: audios/sound/拉屎.ogg
+-   -   &nbsp
+
+{ sound > 0:
+    # AUDIO: audios/sound/拉屎.ogg
+}
 
         {tg or update:
             拉完屎后，风痕回到了房间。
@@ -158,7 +184,10 @@ VAR pooping = false
 
 *   (tg) {not (tg or update)} 对了对了，要上tg找群友拉屎
 
-    # AUDIO: audios/sound/电报.ogg
+    { sound > 0:
+        # AUDIO: audios/sound/电报.ogg
+    }
+
 
     打开tg的风痕，快速阅览了几个群组。
 
@@ -182,7 +211,10 @@ VAR pooping = false
     其他的频道凭借着发色图、将他人制作的梗图据为己有、联动色情与白嫖频道以此扩大订阅量。
 
 *   *   「我才不和他们同流合污呢，哼。」
+
+    { sound > 0:
         # AUDIO: audios/sound/哼（小生气）.ogg
+    }
 
 -   -   风痕看了下群中的几个投稿，又打开了常去的BBS网站，转发了几张过时的梗图到自己的万人频道中。
 
@@ -201,7 +233,9 @@ VAR pooping = false
 
     风痕摇了摇头，拍了拍脸：<br>「是时候遵守承诺，直播游戏了！」
 
-    # AUDIO: audios/sound/打脸（啪啪）.ogg
+    { sound > 0:
+        # AUDIO: audios/sound/打脸（啪啪）.ogg
+    }
 
     风痕又望了望在房间角落的路由器，苦笑：
 +   「说起来不在家一个多月，网费还是要照交……」
@@ -226,7 +260,9 @@ VAR pooping = false
 
 +   风痕在麦前欢呼
 
-    # AUDIO: audios/sound/欢呼.ogg
+    { sound > 0:
+        # AUDIO: audios/sound/欢呼.ogg
+    }
 
 -   风痕其实不算特别聪明。<br>一直以来，解密游戏的通关凭靠的不是思考，而是耐性。
 
@@ -246,7 +282,9 @@ VAR pooping = false
 +   「啊！是这样………………好！过关了！！」<>
 -   风痕自己鼓起了掌来。
 
-    # AUDIO: audios/sound/鼓掌.ogg
+    { sound > 0:
+        # AUDIO: audios/sound/鼓掌.ogg
+    }
 
     可弹幕却一片寂静。
 
@@ -288,7 +326,9 @@ VAR pooping = false
 
 风痕迅速地打开了灯。
 
-# AUDIO: audios/sound/关灯.ogg
+{ sound > 0:
+    # AUDIO: audios/sound/关灯.ogg
+}
 
 风痕：<br>嗯……虽然直男医生嘱咐我要多喝热水，早点睡。<br>可是现在还早吧！
 
@@ -318,7 +358,9 @@ VAR pooping = false
 
 +   (bath) 是不是该洗白白了？
 
-    # AUDIO: audios/sound/稍微生气.ogg
+    { sound > 0:
+        # AUDIO: audios/sound/稍微生气.ogg
+    }
 
     风痕：<br>干，干什么！！！>_<<br>不准看女孩子洗澡澡！！
 
@@ -337,7 +379,9 @@ VAR pooping = false
 
 风痕皱起眉头：<br>我的生日，是几月几号来着……？
 
-# AUDIO: audios/sound/思考.ogg
+{ sound > 0:
+    # AUDIO: audios/sound/思考.ogg
+}
 
 风痕：<br>算了算了，今日就是我的生日！
 
@@ -431,7 +475,9 @@ VAR pooping = false
 
 +   +   嗒一声，水花声褪去。
 
-        # AUDIO: audios/sound/开水.ogg
+        { sound > 0:
+            # AUDIO: audios/sound/开水.ogg
+        }
 
 -   -   风痕把一部分的开水倒入杯中，准备后药物以便服用。
 
@@ -461,7 +507,9 @@ VAR pooping = false
 
 风痕高兴：<br>虽然屎屎的，但香香的、软软的~哼哼~
 
-# AUDIO: audios/sound/嗯哼哼~~.ogg
+{ sound > 0:
+    # AUDIO: audios/sound/嗯哼哼~~.ogg
+}
 
 风痕：<br>一个半月我没有在家，自己有没有乖乖帮忙看家啊？
 
