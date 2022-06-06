@@ -15,7 +15,7 @@ VAR sound = 0
 
 === start ===
 
-风之痕 0.0.29{extension:-扩展分支}
+风之痕 0.0.29-rc.1{extension:-扩展分支}
 
 // # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
