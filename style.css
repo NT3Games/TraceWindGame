@@ -267,6 +267,10 @@ body.dark {
     color: white;
 }
 
+.dark p{
+    color: white;
+}
+
 .dark h2 {
     color: #666;
 }

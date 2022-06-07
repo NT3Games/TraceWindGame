@@ -17,7 +17,7 @@ VAR background = 0
 
 === start ===
 
-风之痕 0.0.30{extension:-扩展分支}
+风之痕 0.0.30-rc.1{extension:-扩展分支}
 
 ~ background = RANDOM(1, 3)
 
@@ -50,11 +50,21 @@ VAR background = 0
     （游戏已添加音效，请注意音量。）
 }
 
-+   [开始游戏] -> episode_1
-+   [已解锁结局] -> endings
-+   [设置] -> setting
-+   [关于游戏] -> about
-+   [开发者模式] -> debug_mod
++   [开始游戏]
+    # BACKGROUND:
+    -> episode_1
++   [已解锁结局]
+    # BACKGROUND:
+    -> endings
++   [设置]
+    # BACKGROUND:
+    -> setting
++   [关于游戏]
+    # BACKGROUND:
+    -> about
++   [开发者模式]
+    # BACKGROUND:
+    -> debug_mod
 
 === about ===
 
@@ -164,10 +174,6 @@ gledos
 # CLEAR
 # CLASS: menu_title
 已解锁结局
-
-{ obtained_ending < 1 :
-    目前似乎没有解锁结局。
-}
 
 +   {obtained_ending("sleeping")} 睡美人
 +   {obtained_ending("yuki")} 汤化雪
