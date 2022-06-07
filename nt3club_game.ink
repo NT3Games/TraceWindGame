@@ -1,7 +1,7 @@
 # title: 风之痕
-# author: NT3
-# theme: dark
-// 游戏地址：https://tracewindgame.netlify.app
+# author: NT3 Games
+# theme: light
+// 游戏地址：https://tracewindgame.netlify.app // 
 // 流程图：https://hackmd.io/H3N_GcVcRAW5zvNTY41Kzg?view
 
 // All of including file should list in the main.js FILES array.
@@ -10,12 +10,37 @@ INCLUDE extern_function.ink
 
 VAR extension = false
 VAR sound = false
+VAR splash = 0
+VAR background = 0
 
 -> start
 
 === start ===
 
-风之痕 0.0.29-rc.2{extension:-扩展分支}
+风之痕 0.0.30{extension:-扩展分支}
+
+~ background = RANDOM(1, 3)
+
+{ background :
+    -   1: # BACKGROUND: images/粉色.png
+    -   2: # BACKGROUND: images/蓝色.png
+    -   3: # BACKGROUND: images/绿色.png
+    -   else: 错误
+}
+
+# BACKGROUND: images/绿色M.jpg
+
+~ splash = RANDOM(1, 6)
+
+// { splash :
+//     -   1: 1% sugar!
+//     -   2: 100% pure!
+//     -   3: 150 bpm for 400000 minutes!
+//     -   4: 90% bug free!
+//     -   5: Afraid of the big, black bat!
+//     -   6: Kind of dragon free!
+//     -   else: 错误
+// }
 
 // # IMAGE: images/pexels-manuel-geissinger-325229.jpg
 // 只是测试用的图片，之后会替换为游戏封面？
@@ -37,11 +62,38 @@ VAR sound = false
 # CLASS: menu_title
 关于
 
-这是一款美少女能拉屎的文字游戏……
+改编自真人真事，部分内容属虚构。
 
-游戏代码仓库在 GitHub： https:\/\/github.com\/NT3Games\/TraceWindGame
+<br>
 
-// 借物表待之后更新，目前可以在源代码中查看。
+此为开源游戏。<br>
+GitHub： https:\/\/github.com\/NT3Games\/TraceWindGame
+
+<br>
+
+# CLASS: menu_title
+制作人员名单
+
+# CLASS: staff_text
+NT³
+
+# CLASS: staff_text
+TraceWind
+
+# CLASS: staff_text
+LittleYe233
+
+# CLASS: staff_text
+可名
+
+# CLASS: staff_text
+gledos
+
+# CLASS: menu_title
+特别鸣谢
+
+# CLASS: staff_text
+「NT³的众吹众擂」群组的全体成员
 
 +   [回到标题页面]
     # CLEAR

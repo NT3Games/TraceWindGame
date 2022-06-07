@@ -5,6 +5,17 @@ body {
     /* font-weight: lighter; */
     background: white;
     overflow: hidden;
+    font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif; 
+    /*  https://zenozeng.github.io/fonts.css/  */
+    /*
+    Copyright (C) 2013-2018 Zeno Zeng and contributors
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+    */
 }
 
 body.switched {
@@ -43,6 +54,7 @@ h2 {
 */
 .byline {
     font-style: italic;
+    color: black;
 }
 
 .written-in-ink {
@@ -97,7 +109,7 @@ h2 {
     margin: 0 auto;
     padding: 20px;
     padding-top: 4em;
-    background: white;
+    background: #ffffff77;
 }
 
 .switched .container {
@@ -106,17 +118,17 @@ h2 {
 
 p {
     font-size: 13pt;
-    color: #888;
+    color: black;
     line-height: 1.7em;
     /* font-weight: lighter; */
 }
 
 a {
     /* font-weight: 700; */
-    color: #b97c2c;
+    color: black;
     /* font-family: sans-serif; */
     transition: color 0.6s;
-    text-decoration: none;
+    
 }
 
 a:hover {
@@ -205,6 +217,11 @@ img {
 .menu_title {
     font-size: 18.5pt;
     font-weight: bold;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.staff_text {
     text-align: center;
     margin-bottom: 0px;
 }
