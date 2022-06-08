@@ -16,7 +16,7 @@ VAR splash = 0
 
 === start ===
 
-风之痕 0.1.0{extension:-扩展分支}
+风之痕 0.1.1{extension:-扩展分支}
 
 ~ splash = RANDOM(1, 6)
 
@@ -154,15 +154,20 @@ gledos
 
 === endings ===
 
-# CLEAR
 # CLASS: menu_title
 已解锁结局
 
-+   {obtained_ending("sleeping")} 睡美人
-+   {obtained_ending("yuki")} 汤化雪
++   {obtained_ending("sleeping")}
+    睡美人 # CLEAR
+    # IMAGE: images/粉色.png
++   {obtained_ending("yuki")}
+    汤化雪 # CLEAR
     病历条目：忌冲热水凉、泡热水澡。
-+   {obtained_ending("butterfly")} 羽化梦
+    # IMAGE: images/蓝色.png
++   {obtained_ending("butterfly")}
+    羽化梦 # CLEAR
     病历条目：忌食高脂肪、酒、油炸食品。
+    # IMAGE: images/绿色.png
 +   [回到标题页面]
     # CLEAR
     # RESTART
