@@ -1,6 +1,6 @@
 # title: 风之痕
 # author: NT3 Games
-# theme: light
+# theme: dark
 // 游戏地址：https://tracewindgame.netlify.app // 
 // 流程图：https://hackmd.io/H3N_GcVcRAW5zvNTY41Kzg?view
 
@@ -11,24 +11,12 @@ INCLUDE extern_function.ink
 VAR extension = false
 VAR sound = false
 VAR splash = 0
-VAR background = 0
 
 -> start
 
 === start ===
 
-风之痕 0.0.30-rc.1{extension:-扩展分支}
-
-~ background = RANDOM(1, 3)
-
-{ background :
-    -   1: # BACKGROUND: images/粉色.png
-    -   2: # BACKGROUND: images/蓝色.png
-    -   3: # BACKGROUND: images/绿色.png
-    -   else: 错误
-}
-
-# BACKGROUND: images/绿色M.jpg
+风之痕 0.1.0{extension:-扩展分支}
 
 ~ splash = RANDOM(1, 6)
 
@@ -51,19 +39,14 @@ VAR background = 0
 }
 
 +   [开始游戏]
-    # BACKGROUND:
     -> episode_1
 +   [已解锁结局]
-    # BACKGROUND:
     -> endings
 +   [设置]
-    # BACKGROUND:
     -> setting
 +   [关于游戏]
-    # BACKGROUND:
     -> about
 +   [开发者模式]
-    # BACKGROUND:
     -> debug_mod
 
 === about ===

@@ -118,17 +118,17 @@ h2 {
 
 p {
     font-size: 13pt;
-    color: black;
+    color: #212121;
     line-height: 1.7em;
     /* font-weight: lighter; */
 }
 
 a {
     /* font-weight: 700; */
-    color: black;
+    color: #b97c2c;
     /* font-family: sans-serif; */
     transition: color 0.6s;
-    
+    text-decoration: none;
 }
 
 a:hover {
@@ -268,7 +268,7 @@ body.dark {
 }
 
 .dark p{
-    color: white;
+    color: #ccc;
 }
 
 .dark h2 {
