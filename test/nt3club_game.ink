@@ -16,7 +16,7 @@ VAR splash = 0
 
 === start ===
 
-风之痕 0.1.1{extension:-扩展分支}
+风之痕 0.1.2-rc.1{extension:-扩展分支}
 
 ~ splash = RANDOM(1, 6)
 
@@ -813,6 +813,8 @@ VAR pooping = false
 
 // 这里是第二天的内容
 
+# CLASS: game_end
+TRUE END
 
 -> ENDs.nfy
 
