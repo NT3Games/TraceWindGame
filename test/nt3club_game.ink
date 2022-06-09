@@ -16,7 +16,7 @@ VAR splash = 0
 
 === start ===
 
-风之痕 0.1.2-rc.2{extension:-扩展分支}
+风之痕 0.1.2-rc.3{extension:-扩展分支}
 
 ~ splash = RANDOM(1, 6)
 
@@ -181,7 +181,7 @@ gledos
 // # AUDIOLOOP: audios/bgm/132546__theworkingbamboo__etude.ogg
 // 音乐来自：https://freesound.org/people/TheWorkingBamboo/sounds/132546/
 
-# IMAGE: https://count.getloli.com/get/@:tracewindgame:episode_1
+<img src="https://count.getloli.com/get/@:tracewindgame:episode_1" class="">
 
 我全知！所以知道屎。<br>我全能！所以能拉屎！
 
@@ -685,7 +685,7 @@ VAR pooping = false
 # CLASS: game_end
 睡美人 END
 
-# IMAGE: https://count.getloli.com/get/@:tracewindgame:sleeping_end
+<img src="https://count.getloli.com/get/@:tracewindgame:sleeping_end" class="">
 
 # CLASS: tips_title
 获得条例
@@ -749,7 +749,7 @@ VAR pooping = false
 # CLASS: game_end
 汤化雪 END
 
-# IMAGE: https://count.getloli.com/get/@:tracewindgame:yuki_end
+<img src="https://count.getloli.com/get/@:tracewindgame:yuki_end" class="">
 
 # CLASS: tips_title
 获得条例
@@ -797,7 +797,7 @@ VAR pooping = false
 # CLASS: game_end
 羽化梦 END
 
-# IMAGE: https://count.getloli.com/get/@:tracewindgame:butterfly_end
+<img src="https://count.getloli.com/get/@:tracewindgame:butterfly_end" class="">
 
 # CLASS: tips_title
 获得条例
