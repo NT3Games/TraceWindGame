@@ -16,7 +16,7 @@ VAR splash = 0
 
 === start ===
 
-风之痕 0.1.2-rc.1{extension:-扩展分支}
+风之痕 0.1.2-rc.4-test{extension:-扩展分支}
 
 ~ splash = RANDOM(1, 6)
 
@@ -180,6 +180,8 @@ gledos
 
 // # AUDIOLOOP: audios/bgm/132546__theworkingbamboo__etude.ogg
 // 音乐来自：https://freesound.org/people/TheWorkingBamboo/sounds/132546/
+
+<br>
 
 我全知！所以知道屎。<br>我全能！所以能拉屎！
 
