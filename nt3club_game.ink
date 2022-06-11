@@ -11,12 +11,13 @@ INCLUDE extern_function.ink
 VAR extension = false
 VAR sound = false
 VAR splash = 0
+VAR poop_shit_number = 0
 
 -> start
 
 === start ===
 
-风之痕 0.1.2-rc.4-test{extension:-扩展分支}
+风之痕 0.1.3-rc.1-test{extension:-扩展分支}
 
 ~ splash = RANDOM(1, 6)
 
@@ -219,6 +220,8 @@ VAR pooping = false
 
 *   (poop) \ {tg or update:该拉屎了！|总而言之，先拉屎吧！}
 
+    ~ poop_shit_number += 1
+
     ~ pooping = true
 
     风痕的家不大，以风痕的身高来看，走个4步不到便会碰到墙角。
@@ -258,6 +261,7 @@ VAR pooping = false
         # AUDIO: audios/sound/电报.ogg
     }
 
+    ~ poop_shit_number += 1
 
     打开tg的风痕，快速阅览了几个群组。
 
