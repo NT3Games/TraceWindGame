@@ -8,6 +8,8 @@
 INCLUDE extension_cuna.ink
 INCLUDE extern_function.ink
 
+LIST medical_entries = entry_bathing, entry_fatty, entry_caffeine, entry_solitude
+
 VAR extension = false
 VAR sound = false
 VAR splash = 0
@@ -41,8 +43,8 @@ VAR poop_shit_number = 0
 
 +   [开始游戏]
     -> episode_1
-+   [已解锁结局]
-    -> endings
++   [风痕病历]
+    -> medical_records
 +   [设置]
     -> setting
 +   [关于游戏]
@@ -137,11 +139,11 @@ gledos
     # CLEAR
     -> setting
 
-+   [清空已解锁结局]
-    警告：此举将会清空所有已解锁的结局和病历条目，其无法恢复！
++   [清空已解锁病历条目]
+    警告：此举将会清空所有已解锁的病历条目，其无法恢复！
 
 +   +   [确定]
-        ~ clear_ending()
+        ~ clear_entries()
         # CLEAR
         -> setting
 +   +   [取消]
@@ -152,28 +154,52 @@ gledos
     # CLEAR
     -> start
 
+=== function entry_text(entry) ===
+{entry:
+- entry_bathing: ~ return "忌冲热水凉、泡热水澡。"
+- entry_caffeine: ~ return "药物不能和咖啡因混吃。"
+- entry_fatty: ~ return "忌食高脂肪、酒、油炸食品。"
+- entry_solitude: ~ return "建议多向朋友倾诉。"
+- else: ~ return "未找到文本！"
+}
 
-=== endings ===
+=== function show_entry(entries, entry) ===
+~ return "{entries has entry:<li>{entry_text(entry)}</li>}"
+
+=== medical_records ===
 
 # CLASS: menu_title
-已解锁结局
+已解锁病历条目
 
-+   {obtained_ending("sleeping")}
-    睡美人 # CLEAR
-    # IMAGE: images/粉色.png
-+   {obtained_ending("yuki")}
-    汤化雪 # CLEAR
-    病历条目：忌冲热水凉、泡热水澡。
-    # IMAGE: images/蓝色.png
-+   {obtained_ending("butterfly")}
-    羽化梦 # CLEAR
-    病历条目：忌食高脂肪、酒、油炸食品。
-    # IMAGE: images/绿色.png
+~ temp entries = get_entries()
+
+// +   {obtained_ending("sleeping")}
+//     睡美人 # CLEAR
+//     # IMAGE: images/粉色.png
+// +   {obtained_ending("yuki")}
+//     汤化雪 # CLEAR
+//     病历条目：忌冲热水凉、泡热水澡。
+//     # IMAGE: images/蓝色.png
+// +   {obtained_ending("butterfly")}
+//     羽化梦 # CLEAR
+//     病历条目：忌食高脂肪、酒、油炸食品。
+//     # IMAGE: images/绿色.png
+{entries == ():
+    目前没有解锁任何病历。
+- else:
+    <ul>
+    {show_entry(entries, entry_bathing)}
+    {show_entry(entries, entry_caffeine)}
+    {show_entry(entries, entry_fatty)}
+    {show_entry(entries, entry_solitude)}
+    </ul>
+}
+
 +   [回到标题页面]
     # CLEAR
     # RESTART
     -> start
-- -> endings
+- -> medical_records
 
 === episode_1 ===
 
@@ -531,7 +557,7 @@ VAR pooping = false
         风痕笑了起来：<br>还不坏。
 
         回到房间后服用了药物，就准备睡觉了。
-        -> sleeping_end ("药物不能和咖啡因混吃")
+        -> sleeping_end(entry_caffeine)
 
 +   [吃鸡蛋]
 
@@ -618,7 +644,7 @@ VAR pooping = false
 没有人看她一眼。
 
 风痕低下了头，最后的光也淡入了这片黑暗。
--> sleeping_end ("建议多向朋友倾诉")
+-> sleeping_end(entry_solitude)
 
 +   妈妈？！
 
@@ -633,7 +659,7 @@ VAR pooping = false
 他们吵了起来，没有人看她一眼。
 
 风痕低下了头，最后的光也淡入了这片黑暗。
--> sleeping_end ("建议多向朋友倾诉")
+-> sleeping_end(entry_solitude)
 
 +   渡鸦？！
 
@@ -647,7 +673,7 @@ VAR pooping = false
 却无论如何都无法靠近渡鸦。
 
 风痕垂下了双臂，低下了头，最后的光也淡入了这片黑暗。
--> sleeping_end ("建议多向朋友倾诉")
+-> sleeping_end(entry_solitude)
 
 +   小屎屎？！
 
@@ -670,7 +696,7 @@ VAR pooping = false
 
 
 
-=== sleeping_end(tips) ===
+=== sleeping_end(entry) ===
 
 // 睡美人 END
 
@@ -684,7 +710,7 @@ VAR pooping = false
 
 直到永远。
 
-~ new_ending("sleeping")
+~ unlock_entries(entry)
 
 # CLASS: game_end
 睡美人 END
@@ -695,7 +721,7 @@ VAR pooping = false
 获得条例
 
 # CLASS: tips_text
-{tips}
+{entry_text(entry)}
 
 -> bite_the_dust.sleeping
 
@@ -748,7 +774,7 @@ VAR pooping = false
 
 风痕耳边的笑声愈渐愈远，就像那些水珠一般，升走了。
 
-~ new_ending("yuki")
+~ unlock_entries(entry_bathing)
 
 # CLASS: game_end
 汤化雪 END
@@ -759,7 +785,7 @@ VAR pooping = false
 获得条例
 
 # CLASS: tips_text
-忌冲热水凉、泡热水澡
+{entry_text(entry_bathing)}
 
 -> bite_the_dust.yuki
 
@@ -796,7 +822,7 @@ VAR pooping = false
 
 -   她自由了。
 
-~ new_ending("butterfly")
+~ unlock_entries(entry_fatty)
 
 # CLASS: game_end
 羽化梦 END
@@ -807,7 +833,7 @@ VAR pooping = false
 获得条例
 
 # CLASS: tips_text
-忌食高脂肪、酒、油炸食品
+{entry_text(entry_fatty)}
 
 -> bite_the_dust.butterfly
 
@@ -932,8 +958,9 @@ TRUE END
 # CLASS: menu_title
 开发者模式
 
-这里是开发者模式，可以跳转到：
+这里是开发者模式，可以：
 
++   [解锁病历] -> unlock
 +   [Episode 1] -> debug_mod.episode_1_debug
 
 = episode_1_debug
@@ -941,3 +968,15 @@ TRUE END
 +   [Stage 1] ->episode_1.stage_1
 +   [Stage 2] ->episode_1.stage_2
 +   [Stage 4] ->episode_1.stage_4
+
+= unlock
+
+~ temp entries = get_entries()
++   [bathing {entries has entry_bathing: (got)}]
+    ~ unlock_entries(entry_bathing)
++   [fatty {entries has entry_fatty: (got)}]
+    ~ unlock_entries(entry_fatty)
++   [清除]
+    ~ clear_entries()
++   [返回] -> debug_mod
+- -> unlock

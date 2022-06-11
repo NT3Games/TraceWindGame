@@ -53,31 +53,53 @@ function CreateAudio() {
     let options = new inkjs.CompilerOptions(null, [], false, null, new JsonFileHandler(inks))
     var story = new inkjs.Compiler(inks['nt3club_game.ink'], options).Compile();
 
-    story.BindExternalFunction("obtained_ending", function (name) {
+    // migration
+    try {
+        let ending_str = window.localStorage.getItem('endings');
+        if (ending_str != null) {
+            let entries = new Set;
+            let endings = JSON.parse(ending_str);
+            for (let end of endings) {
+                if (end == "yuki") {
+                    entries.add("entry_bathing");
+                } else if (end == "butterfly") {
+                    entries.add("entry_fatty");
+                }
+            }
+            window.localStorage.setItem('entries', JSON.stringify(Array.from(entries)))
+            window.localStorage.removeItem('endings');
+        }
+    } catch (_) { }
+
+    story.BindExternalFunction("get_entries", function () {
         try {
-            let endings_str = window.localStorage.getItem('endings') || '[]';
-            let endings = JSON.parse(endings_str);
-            return endings.includes(name);
+            let entries_json = window.localStorage.getItem('entries') || "[]";
+            let set = new Set(JSON.parse(entries_json));
+            let entries = new inkjs.InkList('medical_entries', story);
+            set.forEach(entries.AddItem, entries);
+            return entries;
         } catch (e) {
             console.debug("Couldn't load save state");
             return false;
         }
-    }, true);
+    }, false);
 
-    story.BindExternalFunction("new_ending", function (name) {
+    story.BindExternalFunction("unlock_entries", function (name) {
         try {
-            let endings_str = window.localStorage.getItem('endings') || '[]';
-            let endings = new Set(JSON.parse(endings_str));
-            endings.add(name);
-            window.localStorage.setItem('endings', JSON.stringify(Array.from(endings)))
+            let unlock = new Set([...name.keys()].map(a => JSON.parse(a).itemName))
+            let entries_json = window.localStorage.getItem('entries') || '[]';
+            let entries = new Set(JSON.parse(entries_json));
+
+            unlock.forEach(entries.add, entries); // merge
+            window.localStorage.setItem('entries', JSON.stringify(Array.from(entries)))
         } catch (e) {
             console.debug("Couldn't load save state");
         }
     }, false);
 
-    story.BindExternalFunction("clear_ending", function () {
+    story.BindExternalFunction("clear_entries", function () {
         try {
-            window.localStorage.setItem('endings', '[]')
+            window.localStorage.setItem('entries', '[]')
         } catch (e) {
             console.debug("Couldn't load save state");
         }

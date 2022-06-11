@@ -1,15 +1,15 @@
 EXTERNAL console_log(x)
-EXTERNAL obtained_ending(name)
-EXTERNAL new_ending(name)
-EXTERNAL clear_ending()
+EXTERNAL get_entries()
+EXTERNAL unlock_entries(name)
+EXTERNAL clear_entries()
 
-=== function obtained_ending(name) ===
-~ return false
+=== function get_entries() ===
+~ return ()
 
-=== function new_ending(name) ===
+=== function unlock_entries(name) ===
 ~ return
 
-=== function clear_ending() ===
+=== function clear_entries() ===
 ~ return
 
 === function console_log(x) ===
