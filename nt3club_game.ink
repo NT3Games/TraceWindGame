@@ -17,7 +17,7 @@ VAR poop_shit_number = 0
 
 === start ===
 
-风之痕 0.1.3-rc.1-test{extension:-扩展分支}
+风之痕 0.1.3-rc.2-test{extension:-扩展分支}
 
 ~ splash = RANDOM(1, 6)
 
@@ -196,7 +196,7 @@ gledos
     # AUDIO: audios/sound/关门.ogg
 }
 
-风痕笑着，放下装着病历、CT、需按时复用的药与几张收据的挎包后，打开了家中的窗。
+风痕笑着，放下装着病历、CT、需按时服用的药与几张收据的挎包后，打开了家中的窗。
 
 家里凝固了一个半月的空气霎时间从窗冲出。
 
