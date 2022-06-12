@@ -1,4 +1,4 @@
-const FILES = ['nt3club_game.ink', 'extension_cuna.ink', 'extern_function.ink']
+const FILES = ['nt3club_game.ink', 'extension_cuna.ink', 'extern_function.ink', 'episode_2.ink']
 
 // compile from https://github.com/y-lohse/inkjs/blob/master/src/compiler/FileHandler/JsonFileHandler.ts
 class JsonFileHandler {
