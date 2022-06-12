@@ -32,7 +32,7 @@
 
 = stage_1_sleep_in_content
 
- 【关于赖床的待写内容】
+【关于赖床的待写内容】
 
 【去群里看投稿，更新频道。】
 
@@ -107,38 +107,53 @@ VAR stage_2_pooping = false
 
 = stage_3
 
-VAR draw_yellow = false
-VAR draw_red = false
-VAR draw_blue = false
-VAR draw_completed = false
+VAR draw = 0
 
- { draw_completed == false }【上色选择】
-
- { draw_completed == true }【就这样！】
-
-+   { draw_yellow == false } 黄色
-    ~   draw_yellow = true
-    ~   draw_completed = true
+【上色选择】
 
 
-    -> episode_2.stage_3
-+   { draw_red == false } 红色
-    ~   draw_red = true
-    ~   draw_completed = true
+{ draw:
+-   0:
+    +   黄色 -> draw_yellow 
+    +   红色 -> draw_rad 
+    +   蓝色 -> draw_blue
+-   1:
+    +   红色 -> draw_rad 
+    +   蓝色 -> draw_blue
+-  10:
+    +   黄色 -> draw_yellow 
+    +   蓝色 -> draw_blue
+-  11:
+    +   蓝色 -> draw_blue
+    +   就这样！ -> draw_done
+- 100:
+    +   黄色 -> draw_yellow 
+    +   红色 -> draw_rad 
+- 101:
+    +   红色 -> draw_rad 
+    +   就这样！ -> draw_done
+- 110:
+    +   黄色 -> draw_yellow 
+    +   就这样！ -> draw_done
+- 111:
+    +   就这样！ -> draw_done
+- else: 错误 -> episode_1
+}
 
+= draw_yellow
+~   draw += 1
+-> episode_2.stage_3
 
-    -> episode_2.stage_3
-+   { draw_blue == false } 蓝色
-    ~   draw_blue = true
-    ~   draw_completed = true
+= draw_rad
+~   draw += 10
+-> episode_2.stage_3
 
-    -> episode_2.stage_3
-+   { draw_completed == true }【就这样！】
+= draw_blue
+~   draw += 100
+-> episode_2.stage_3
 
-
-
-
-    -> episode_2.stage_3
+= draw_done
+-> episode_2.stage_4
 
 
 
@@ -146,16 +161,17 @@ VAR draw_completed = false
 
 【待写内容】
 
--> stage_4_option
+-> episode_2.stage_4_option
 
 
 
 = stage_4_option
 
 +   直播
-    -> stage_4_livestream_content
+    -> episode_2.stage_4_livestream_content
 +   出门
-    -> stage_4_go_out_content
+    -> episode_2.stage_4_go_out_content
+
 
 
 = stage_4_livestream_content
@@ -172,10 +188,54 @@ VAR draw_completed = false
 
 【待写内容】
 
-【此处内容稍后书写】
+{ draw:
+-  11: -> episode_2.stage_4_blood_c_content
+- 101: -> episode_2.stage_4_hanada_content
+- 110: -> episode_2.stage_4_icu_content
+- 111: -> episode_2.stage_4_black_content
+- else:
+    +   错误 -> episode_1
+}
+
+-> episode_2.stage_4_black_content
+
+
+
+= stage_4_icu_content
+
+【ICU】
+
+【蓝色真实：梦醒时分】
 
 -> ENDs.nfy
 
+
+
+= stage_4_hanada_content
+
+【星空向日葵田】
+
+【蓝色真实：恒爱星葵】
+
+-> ENDs.nfy
+
+
+
+= stage_4_blood_c_content
+
+【血海】
+
+【蓝色真实：极乐之海】
+
+-> ENDs.nfy
+
+
+
+= stage_4_black_content
+
+【黑】
+
+-> void_end
 
 
 
@@ -197,7 +257,6 @@ VAR draw_completed = false
 {entry_text(entry_belly)}
 
 -> bite_the_dust.heart
-
 
 
 
@@ -225,23 +284,10 @@ VAR draw_completed = false
 
 
 
+=== void_end ===
 
+【待写内容】
 
+【堕虚无 END】
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-> ENDs.nfy
