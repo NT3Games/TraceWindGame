@@ -22,7 +22,7 @@ VAR go_out_number = 0
 
 === start ===
 
-风之痕 2022-06-12T12:37:56.3756+08:00-test{extension:-扩展分支}
+风之痕 2022-06-12T12:40:49.4049+08:00-test{extension:-扩展分支}
 
 ~ splash = RANDOM(1, 6)
 
@@ -974,8 +974,9 @@ VAR pooping = false
 = episode_2_debug
 
 +   [Stage 1] ->episode_2.stage_1
-// +   [Stage 2] ->episode_2.stage_2
-// +   [Stage 3] ->episode_2.stage_3
++   [Stage 2] ->episode_2.stage_2
++   [Stage 3] ->episode_2.stage_3
++   [Stage 4] ->episode_2.stage_4
 
 = unlock
 
