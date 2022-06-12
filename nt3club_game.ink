@@ -22,7 +22,11 @@ VAR go_out_number = 0
 
 === start ===
 
-风之痕 2022-06-12T14:25:55.2555+08:00-test{extension:-扩展分支}
+风之痕 2022-06-12T20:17:48.1748+08:00-test{extension:-扩展分支}
+
+~ temp entries = get_entries()
+
+结局解锁数量 { LIST_COUNT(entries) } 。
 
 ~ splash = RANDOM(1, 6)
 
@@ -985,6 +989,12 @@ VAR pooping = false
     ~ unlock_entries(entry_bathing)
 +   [fatty {entries has entry_fatty: (got)}]
     ~ unlock_entries(entry_fatty)
++   [caffeine {entries has entry_caffeine: (got)}]
+    ~ unlock_entries(entry_caffeine)
++   [solitude {entries has entry_solitude: (got)}]
+    ~ unlock_entries(entry_solitude)
++   [belly {entries has entry_belly: (got)}]
+    ~ unlock_entries(entry_belly)
 +   [清除]
     ~ clear_entries()
 +   [返回] -> debug_mod

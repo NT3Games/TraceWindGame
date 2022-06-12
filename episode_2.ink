@@ -46,8 +46,8 @@
 
 VAR stage_2_pooping = false
 
-+   【出门】
-    -> episode_2.stage_2_go_out_content
+// +   【出门】
+//     -> episode_2.stage_2_go_out_content
 +   {stage_2_pooping == false} 【拉屎】
     -> episode_2.stage_2_poop_shit_content
 +   【画画】
@@ -55,22 +55,22 @@ VAR stage_2_pooping = false
 
 
 
-= stage_2_go_out_content
+// = stage_2_go_out_content
 
-【待写内容】
+// 【待写内容】
 
-{
-    -   go_out_number < 3:
-        +   【门打不开】
-            ~ go_out_number += 1
-            -> episode_2.stage_2
-    -   go_out_number == 3: 
-        +   【门打开了】
-            -> spy_eye_end
-    -   else:
-        +   程序错误，跳转到 episode 2 stage 2
-            -> episode_2.stage_2
-}
+// {
+// -   go_out_number < 3:
+//     +   【门打不开】
+//         ~ go_out_number += 1
+//         -> episode_2.stage_2
+// -   go_out_number == 3: 
+//     +   【门打开了】
+//         -> spy_eye_end
+// -   else:
+//     +   程序错误，跳转到 episode 2 stage 2
+//         -> episode_2.stage_2
+// }
 
 
 
@@ -80,11 +80,21 @@ VAR stage_2_pooping = false
 
 ~ stage_2_pooping = true
 
-【一个厕所事件，暗示多个风痕的存在】
+【一个厕所事件】
 
-【道具：马桶吸的逻辑待写】
+{ poop_shit_number == 2 :
++   使用马桶吸
+    -> stage_2_rei_ichi_content
+}
++   冲水
+    -> episode_2.stage_2
 
--> episode_2.stage_2
+
+= stage_2_rei_ichi_content
+
+【待写内容】
+
+-> ENDs.nfy
 
 
 
@@ -192,12 +202,10 @@ VAR draw = 0
 -  11: -> episode_2.stage_4_blood_c_content
 - 101: -> episode_2.stage_4_hanada_content
 - 110: -> episode_2.stage_4_icu_content
-- 111: -> episode_2.stage_4_black_content
+- 111: -> episode_2.stage_4_shit_content
 - else:
     +   错误 -> episode_1
 }
-
--> episode_2.stage_4_black_content
 
 
 
@@ -231,11 +239,20 @@ VAR draw = 0
 
 
 
-= stage_4_black_content
+= stage_4_shit_content
 
-【黑】
+【小屎屎】
 
--> void_end
+~ temp entries = get_entries()
+
+{ LIST_COUNT(entries) == 5 :
+    Happy END
+
+    -> ENDs.nfy
+}
+
+
+-> spy_eye_end
 
 
 
@@ -265,8 +282,6 @@ VAR draw = 0
 【待写内容】
 
 【窥窗眼 END】
-
-【道具：马桶吸（皮搋子）】
 
 -> ENDs.nfy
 
