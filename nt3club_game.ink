@@ -219,6 +219,9 @@ gledos
 
 <br>
 
+~ increase_counter("start")
+<small>这是全世界玩家第 {get_counter("start")} 次开始游戏。</small>
+
 我全知！所以知道屎。<br>我全能！所以能拉屎！
 
 住院长达46天，今日终于结束的风痕，回到了家。

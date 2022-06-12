@@ -1,5 +1,7 @@
 const FILES = ['nt3club_game.ink', 'extension_cuna.ink', 'extern_function.ink', 'episode_2.ink']
 
+const COUNTER_URI = 'https://counter.nt3.games'
+
 // compile from https://github.com/y-lohse/inkjs/blob/master/src/compiler/FileHandler/JsonFileHandler.ts
 class JsonFileHandler {
     constructor(fileHierarchy) {
@@ -71,6 +73,10 @@ function CreateAudio() {
         }
     } catch (_) { }
 
+    story.BindExternalFunction("console_log", function (text) {
+        console.log(text)
+    }, false);
+
     story.BindExternalFunction("get_entries", function () {
         try {
             let entries_json = window.localStorage.getItem('entries') || "[]";
@@ -105,8 +111,18 @@ function CreateAudio() {
         }
     }, false);
 
-    story.BindExternalFunction("console_log", function (text) {
-        console.log(text)
+    story.BindExternalFunction("increase_counter", function (name) {
+        var request = new XMLHttpRequest();
+        request.open('POST', COUNTER_URI + '/counter/' + name, true);
+        request.send();
+    }, false);
+
+    story.BindExternalFunction("get_counter", function (name) {
+        // since synchronous XHR has been deprecated in many browsers, this function should be rewrite
+        var request = new XMLHttpRequest();
+        request.open('GET', COUNTER_URI + '/counter/' + name, false);
+        request.send();
+        return parseInt(request.response);
     }, false);
 
     var savePoint = "";
