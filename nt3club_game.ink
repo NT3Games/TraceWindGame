@@ -8,18 +8,21 @@
 INCLUDE extension_cuna.ink
 INCLUDE extern_function.ink
 
-LIST medical_entries = entry_bathing, entry_fatty, entry_caffeine, entry_solitude
+INCLUDE episode_2.ink
+
+LIST medical_entries = entry_bathing, entry_fatty, entry_caffeine, entry_solitude, entry_belly
 
 VAR extension = false
 VAR sound = false
 VAR splash = 0
 VAR poop_shit_number = 0
+VAR go_out_number = 0
 
 -> start
 
 === start ===
 
-风之痕 0.1.3-rc.2-test{extension:-扩展分支}
+风之痕 2022-06-12T12:37:56.3756+08:00-test{extension:-扩展分支}
 
 ~ splash = RANDOM(1, 6)
 
@@ -160,6 +163,7 @@ gledos
 - entry_caffeine: ~ return "药物不能和咖啡因混吃。"
 - entry_fatty: ~ return "忌食高脂肪、酒、油炸食品。"
 - entry_solitude: ~ return "建议多向朋友倾诉。"
+- entry_belly: ~ return "肠胃紊乱，需卧床休息。"
 - else: ~ return "未找到文本！"
 }
 
@@ -192,6 +196,7 @@ gledos
     {show_entry(entries, entry_caffeine)}
     {show_entry(entries, entry_fatty)}
     {show_entry(entries, entry_solitude)}
+    {show_entry(entries, entry_belly)}
     </ul>
 }
 
@@ -841,19 +846,6 @@ VAR pooping = false
 
 
 
-=== episode_2 ===
-
-// 这里是第二天的内容
-
-# CLASS: game_end
-TRUE END
-
--> ENDs.nfy
-
-
-
-
-
 === ENDs ===
 
 # CLASS: end
@@ -927,6 +919,15 @@ TRUE END
         -> episode_1.stage_4
 
 
+= heart
+
+<br><br><br>
+
++   [结束游戏？] -> ENDs
++   [回到之前的选择？]
++   +   [【选择起床还是赖床】]
+        # CLEAR
+        -> episode_2.stage_1
 
 
 
@@ -962,12 +963,19 @@ TRUE END
 
 +   [解锁病历] -> unlock
 +   [Episode 1] -> debug_mod.episode_1_debug
++   [Episode 2] -> debug_mod.episode_2_debug
 
 = episode_1_debug
 
 +   [Stage 1] ->episode_1.stage_1
 +   [Stage 2] ->episode_1.stage_2
 +   [Stage 4] ->episode_1.stage_4
+
+= episode_2_debug
+
++   [Stage 1] ->episode_2.stage_1
+// +   [Stage 2] ->episode_2.stage_2
+// +   [Stage 3] ->episode_2.stage_3
 
 = unlock
 
