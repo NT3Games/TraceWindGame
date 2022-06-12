@@ -22,7 +22,7 @@ VAR go_out_number = 0
 
 === start ===
 
-风之痕 2022-06-12T20:17:48.1748+08:00-test{extension:-扩展分支}
+风之痕 2022-06-13T07:17:51.1751+08:00-test{extension:-扩展分支}
 
 ~ temp entries = get_entries()
 
@@ -974,16 +974,17 @@ VAR pooping = false
 
 = episode_1_debug
 
-+   [Stage 1] ->episode_1.stage_1
-+   [Stage 2] ->episode_1.stage_2
-+   [Stage 4] ->episode_1.stage_4
++   [Stage 1] -> episode_1.stage_1
++   [Stage 2] -> episode_1.stage_2
++   [Stage 4] -> episode_1.stage_4
 
 = episode_2_debug
 
-+   [Stage 1] ->episode_2.stage_1
-+   [Stage 2] ->episode_2.stage_2
-+   [Stage 3] ->episode_2.stage_3
-+   [Stage 4] ->episode_2.stage_4
++   [开头]    -> episode_2
++   [Stage 1] -> episode_2.stage_1
++   [Stage 2] -> episode_2.stage_2
++   [Stage 3] -> episode_2.stage_3
++   [Stage 4] -> episode_2.stage_4
 
 = unlock
 
