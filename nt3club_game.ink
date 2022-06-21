@@ -22,7 +22,7 @@ VAR go_out_number = 0
 
 === start ===
 
-风之痕 2022-06-13T07:17:51.1751+08:00-test{extension:-扩展分支}
+风之痕 2022-06-21T21:18-test{extension:-扩展分支}
 
 ~ temp entries = get_entries()
 
@@ -724,6 +724,8 @@ VAR pooping = false
 
 ~ unlock_entries(entry)
 
+#IMAGE: images/ep1/sleeping_end.jpg
+
 # CLASS: game_end
 睡美人 END
 
@@ -788,6 +790,8 @@ VAR pooping = false
 
 ~ unlock_entries(entry_bathing)
 
+#IMAGE: images/ep1/yuki_end.jpg
+
 # CLASS: game_end
 汤化雪 END
 
@@ -833,6 +837,8 @@ VAR pooping = false
 +   她张开了双翼
 
 -   她自由了。
+
+#IMAGE: images/ep1/butterfly_end.jpg
 
 ~ unlock_entries(entry_fatty)
 
