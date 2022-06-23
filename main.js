@@ -330,7 +330,10 @@ function CreateAudio() {
     // Fades in an element after a specified delay
     function showAfter(delay, el) {
         el.classList.add("hide");
-        setTimeout(function () { el.classList.remove("hide") }, delay);
+        setTimeout(function () {
+            el.classList.remove("hide");
+            storyContainer.style.height = contentBottomEdgeY() + "px";
+        }, delay);
     }
 
     // Scrolls the page down, but no further than the bottom edge of what you could
