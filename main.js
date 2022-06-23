@@ -130,7 +130,7 @@ function CreateAudio() {
     }, false);
 
     story.BindExternalFunction("travel_back_text", function (length) {
-        return saveStack[saveStack.length - length][0]
+        return (saveStack[saveStack.length - length] || [''])[0]
     }, true);
 
     story.BindExternalFunction("travel_back_number", function () {
