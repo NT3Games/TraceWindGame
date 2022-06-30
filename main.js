@@ -73,6 +73,10 @@ function CreateAudio() {
         }
     } catch (_) { }
 
+    var savePoint = "";
+    var saveStack = [];
+    var saveStackLock = false;
+
     story.BindExternalFunction("console_log", function (text) {
         console.log(text)
     }, false);
@@ -125,7 +129,37 @@ function CreateAudio() {
         return parseInt(request.response);
     }, false);
 
-    var savePoint = "";
+    story.BindExternalFunction("travel_back_text", function (length) {
+        return (saveStack[saveStack.length - length] || [''])[0]
+    }, true);
+
+    story.BindExternalFunction("travel_back_number", function () {
+        return saveStack.length;
+    }, true);
+
+
+    story.BindExternalFunction("travel_back", function (length) {
+        saveStackLock = false;
+        for (let i = 1; i < length; i++) {
+            saveStack.pop();
+        }
+        let save = saveStack.pop();
+        removeAll("p");
+        removeAll("img");
+        story.ResetState();
+        story.state.LoadJson(save[1]);
+        continueStory(true);
+    }, false);
+
+
+    story.BindExternalFunction("lock_travel_back", function () {
+        saveStackLock = true;
+    }, false);
+
+
+    story.BindExternalFunction("unlock_travel_back", function () {
+        saveStackLock = false;
+    }, false);
 
     let savedTheme;
     let globalTagTheme;
@@ -196,8 +230,21 @@ function CreateAudio() {
                 // customised to be used for other things too.
                 var splitTag = splitPropertyTag(tag);
 
+                if (splitTag && splitTag.property == "BACK") {
+                    saveStackLock = false;
+                    for (let i = 1; i < parseInt(splitTag.val); i++) {
+                        saveStack.pop();
+                    }
+                    let save = saveStack.pop();
+                    removeAll("p");
+                    removeAll("img");
+                    story.ResetState();
+                    story.state.LoadJson(save[1]);
+                    return continueStory(true);
+                }
+
                 // AUDIO: src
-                if (splitTag && splitTag.property == "AUDIO") {
+                else if (splitTag && splitTag.property == "AUDIO") {
                     applyAudio({ src: splitTag.val, loop: false });
                 }
 
@@ -266,6 +313,16 @@ function CreateAudio() {
             delay += 200.0;
         }
 
+
+        if (story.currentChoices.length > 1 && !saveStackLock) {
+            saveStack.push([storyContainer.lastElementChild.textContent, savePoint]);
+            try {
+                window.localStorage.setItem('save-stack', JSON.stringify(saveStack));
+            } catch (e) {
+                console.warn("Couldn't save saveStack");
+            }
+        }
+
         // Create HTML choices from ink choices
         story.currentChoices.forEach(function (choice) {
 
@@ -317,6 +374,8 @@ function CreateAudio() {
 
         // set save point to here
         savePoint = story.state.toJson();
+        saveStack = [];
+        saveStackLock = false;
 
         continueStory(true);
 
@@ -414,6 +473,8 @@ function CreateAudio() {
         try {
             let savedState = window.localStorage.getItem('save-state');
             if (savedState) {
+                saveStack = JSON.parse(window.localStorage.getItem('save-stack')) || [];
+                saveStackLock = false;
                 story.state.LoadJson(savedState);
                 return true;
             }

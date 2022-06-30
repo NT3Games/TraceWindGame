@@ -379,7 +379,7 @@ VAR draw = 0
 # CLASS: tips_text
 {entry_text(entry_belly)}
 
--> bite_the_dust.heart
+-> bite_the_dust
 
 
 

@@ -737,7 +737,7 @@ VAR pooping = false
 # CLASS: tips_text
 {entry_text(entry)}
 
--> bite_the_dust.sleeping
+-> bite_the_dust
 
 
 
@@ -803,7 +803,7 @@ VAR pooping = false
 # CLASS: tips_text
 {entry_text(entry_bathing)}
 
--> bite_the_dust.yuki
+-> bite_the_dust
 
 
 
@@ -853,7 +853,7 @@ VAR pooping = false
 # CLASS: tips_text
 {entry_text(entry_fatty)}
 
--> bite_the_dust.butterfly
+-> bite_the_dust
 
 
 
@@ -888,62 +888,28 @@ VAR pooping = false
 
 
 
-=== bite_the_dust
+=== bite_the_dust ===
 
-= yuki
-
+~ lock_travel_back()
 <br><br><br>
 
 +   [结束游戏？] -> ENDs
 +   [回到之前的选择？]
-+   +   [风痕：<br>嗯……虽然直男医生嘱咐我要多喝热水，早点睡。<br>可是现在还早吧！]
-        # CLEAR
-        -> episode_1.stage_2
-
-
-= sleeping
-
-<br><br><br>
-
-+   [结束游戏？] -> ENDs
-+   [回到之前的选择？]
-+   +   [风痕：<br>嗯……虽然直男医生嘱咐我要多喝热水，早点睡。<br>可是现在还早吧！]
-        # CLEAR
-        -> episode_1.stage_2
-+   +   [说起来，今天还没吃饭饭呢！]
-        # CLEAR
-        -> episode_1.stage_2.eat
-
-
-= butterfly
-
-<br><br><br>
-
-+   [结束游戏？] -> ENDs
-+   [回到之前的选择？]
-+   +   [风痕：<br>嗯……虽然直男医生嘱咐我要多喝热水，早点睡。<br>可是现在还早吧！]
-        # CLEAR
-        -> episode_1.stage_2
-+   +   [说起来，今天还没吃饭饭呢！]
-        # CLEAR
-        -> episode_1.stage_2.eat
-+   +   准备睡觉了。
-        # CLEAR
-        -> episode_1.stage_4
-
-
-= heart
-
-<br><br><br>
-
-+   [结束游戏？] -> ENDs
-+   [回到之前的选择？]
-+   +   [【选择起床还是赖床】]
-        # CLEAR
-        -> episode_2.stage_1
-
-
-
++   +   {travel_back_number() >= 5} [{travel_back_text(5)}]
+        REDIRECTED # BACK: 5
+        -> END // to comfort ink
++   +   {travel_back_number() >= 4} [{travel_back_text(4)}]
+        REDIRECTED # BACK: 4
+        -> END
++   +   {travel_back_number() >= 3} [{travel_back_text(3)}]
+        REDIRECTED # BACK: 3
+        -> END
++   +   {travel_back_number() >= 2} [{travel_back_text(2)}]
+        REDIRECTED # BACK: 2
+        -> END
++   +   {travel_back_number() >= 1} [{travel_back_text(1)}]
+        REDIRECTED # BACK: 1
+        -> END
 
 
 
