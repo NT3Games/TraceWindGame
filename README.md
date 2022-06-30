@@ -68,7 +68,9 @@ sudo systemctl start nginx
 
 ## 演示
 
-<https://tracewindgame.netlify.app>
+<https://tracewindgame.nt3.games>
+
+备用地址：<https://tracewindgame.netlify.app>
 
 ## 贡献
 
