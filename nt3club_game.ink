@@ -10,7 +10,7 @@ INCLUDE extern_function.ink
 
 INCLUDE episode_2.ink
 
-LIST medical_entries = entry_bathing, entry_fatty, entry_caffeine, entry_solitude, entry_belly
+LIST medical_entries = entry_bathing, entry_fatty, entry_caffeine, entry_solitude, entry_belly, entry_paper
 
 VAR extension = false
 VAR sound = false
@@ -168,6 +168,7 @@ gledos
 - entry_fatty: ~ return "忌食高脂肪、酒、油炸食品。"
 - entry_solitude: ~ return "建议多向朋友倾诉。"
 - entry_belly: ~ return "肠胃紊乱，需卧床休息。"
+- entry_paper: ~ return "放松心态，面对一切。"
 - else: ~ return "未找到文本！"
 }
 
