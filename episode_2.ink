@@ -65,6 +65,8 @@
 
 = stage_1
 
+
+
 +   上个厕所
     // 【起床】
     -> episode_2.stage_1_get_up_content
@@ -174,6 +176,20 @@
 
 = stage_2
 
+    // 天亮
+
+    乐曲在耳边流动，时间在天边流逝。
+
+    鱼白代替了漆黑。
+
+    天伴随着雨声，亮了。
+
+
+
+    风痕坐在床上，有点失意。
+
+    风痕： ……做点什么吧
+
 VAR stage_2_pooping = false
 
 // +   【出门】
@@ -182,6 +198,8 @@ VAR stage_2_pooping = false
     -> episode_2.stage_2_poop_shit_content
 +   【画画】
     -> episode_2.stage_2_draw_content
++   【读书】
+    -> episode_2.stage_2_read_content
 
 
 
@@ -278,6 +296,16 @@ VAR stage_2_pooping = false
 【待写内容】
 
 【零一之间】
+
+-> ENDs.nfy
+
+
+
+= stage_2_read_content
+
+【待写内容】
+
+【未知内容】
 
 -> ENDs.nfy
 
