@@ -22,7 +22,7 @@ VAR go_out_number = 0
 
 === start ===
 
-风之痕 2022-06-21T21:18-test{extension:-扩展分支}
+风之痕 2022-07-04-test{extension:-扩展分支}
 
 ~ temp entries = get_entries()
 
